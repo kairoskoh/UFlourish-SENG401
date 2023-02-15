@@ -5,7 +5,7 @@ This project is part of SENG401 Software Architecture at the University of Calga
 
 This project will be using Visual Studio Community 2019 as the IDE, with the in-built C# and ASP.NET framework.
 
-The tutorial that this project used can be found [here](https://www.youtube.com/watch?v=BfEjDD8mWYg&t=1515s&ab_channel=freeCodeCamp.org).
+The tutorial that this project used can be found [here](https://youtu.be/BfEjDD8mWYg).
 
 This tutorial should get you up to speed on the project structure, how it works and how to work on it.
 
