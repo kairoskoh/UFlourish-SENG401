@@ -1,0 +1,50 @@
+﻿body {
+}
+
+
+.incomplete-profile {
+    
+    text-align: center;
+    
+    img {
+        width: 50px;
+        display:block;
+        margin:auto;
+
+    }
+    button{
+        margin-top:10px;
+    }
+
+}
+
+.Complete-profile {
+
+
+    .section-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        color:gray;
+
+        .title {
+            margin-right: 10px;
+        }
+
+        .rule {
+            flex-grow: 1;
+            height: 1px;
+            border: none;
+            background-color: black;
+        }
+    }
+
+    .information{
+        display:flex;
+        gap:60px;
+        .field{
+            font-weight:bold;
+
+        }
+    }
+}

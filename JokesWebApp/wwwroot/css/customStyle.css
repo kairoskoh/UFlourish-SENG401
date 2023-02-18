@@ -1,0 +1,34 @@
+﻿.incomplete-profile {
+  text-align: center;
+}
+.incomplete-profile img {
+  width: 50px;
+  display: block;
+  margin: auto;
+}
+.incomplete-profile button {
+  margin-top: 10px;
+}
+
+.Complete-profile .section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: gray;
+}
+.Complete-profile .section-header .title {
+  margin-right: 10px;
+}
+.Complete-profile .section-header .rule {
+  flex-grow: 1;
+  height: 1px;
+  border: none;
+  background-color: black;
+}
+.Complete-profile .information {
+  display: flex;
+  gap: 60px;
+}
+.Complete-profile .information .field {
+  font-weight: bold;
+}

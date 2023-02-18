@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - UFlourish</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="@Url.Content("~/css/customStyle.css")" />
 </head>
 <body>
     <header>
@@ -30,6 +31,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Jokes" asp-action="ShowSearchForm">Search</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="UserBasicInfoes" asp-action="Index">Account information</a>
                         </li>
                     </ul>
                 </div>

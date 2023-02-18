@@ -14,5 +14,6 @@ namespace JokesWebApp.Data
         {
         }
         public DbSet<JokesWebApp.Models.Joke> Joke { get; set; }
+        public DbSet<JokesWebApp.Models.UserBasicInfo> UserBasicInfoes { get; set; }
     }
 }
