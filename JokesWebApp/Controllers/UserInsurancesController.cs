@@ -156,7 +156,7 @@ namespace JokesWebApp.Controllers
             var userInsurance = await _context.UserInsurance.FindAsync(id);
             _context.UserInsurance.Remove(userInsurance);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index","UserBasicInfoes");
         }
 
         private bool UserInsuranceExists(int id)

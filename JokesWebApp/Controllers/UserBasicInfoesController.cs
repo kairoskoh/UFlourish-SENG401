@@ -28,6 +28,7 @@ namespace JokesWebApp.Controllers
             string userEmail = User.Identity.Name;
             var user= _context.UserBasicInfoes.Where(u => u.Email == userEmail).FirstOrDefault();
             _context.Entry(user).Collection(u=>u.Insurance).Load();
+            _context.Entry(user).Collection(u=>u.Payments).Load();
             
             return View(user);
         }
@@ -141,19 +142,7 @@ namespace JokesWebApp.Controllers
             return _context.UserBasicInfoes.Any(e => e.Id == id);
         }
 
-        // method outside CRUD
-        [Authorize]
-        public IActionResult AddInsurance()
-        {
-            return _userInsurancesController.Create();
-        }
-        [Authorize]
-        public IActionResult DeleteInsurance(int? Id)
-        {
-            var model = _context.UserBasicInfoes.Where(u => u.Email == User.Identity.Name).FirstOrDefault();
-            var insurance=_context.UserInsurance.Where(u => u.Id == Id);
-            return View("~/Views/UserInsurances/Delete.cshtml",insurance);
-        }
+      
     }
 
 

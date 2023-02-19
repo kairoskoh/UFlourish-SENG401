@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    var UserId = Model.Id;
 }
 
 <h1>Profile</h1>
@@ -77,7 +78,7 @@
         </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-                @if (Model==null||Model.Insurance == null)
+                @if (Model==null||Model.Insurance == null||!Model.Insurance.Any())
                 {
                   <div class="incomplete-profile">
                     <img src="@Url.Content("~/Media/empty-folder.png")" />
@@ -103,7 +104,7 @@
                                        <p>@insurance.CoPayAmount</p>
                                    </div>
                                </div>
-                               <a asp-action="DeleteInsurance" asp-route-id=@insurance.Id class="btn btn-primary">Delete</a>
+                                <a asp-action="Delete" asp-controller="UserInsurances" asp-route-id=@insurance.Id class="btn btn-danger">Delete</a>
                            </div>
                        </div>
                     }
@@ -121,7 +122,25 @@
         </h2>
         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                @if (Model == null || Model.Payments == null || !Model.Payments.Any())
+                {
+                    <div class="incomplete-profile">
+                        <img src="@Url.Content("~/Media/icons8-add-card-58.png")" />
+                        <a asp-action="Create" asp-controller="UserPayments" asp-route-id="@Model.Id"><button type="button" class="btn btn-primary">Add Payment</button></a>
+                    </div>
+                }
+                else
+                {
+                    @foreach(var payment in Model.Payments)
+                    {
+                        <div class="card-tile">
+                            <div class="card-number">**** **** **** @payment.CardNumber.Substring(payment.CardNumber.Length-4)</div>
+                            <div class="expiry-date">Expires: @payment.ExpiryDate.Month / @payment.ExpiryDate.Year</div>
+                            <a asp-action="Delete" asp-controller="UserPayments" asp-route-id="@payment.Id"> <img src="@Url.Content("~/Media/bin.png")" /></a>
+
+                        </div>
+                    }
+                }
             </div>
         </div>
     </div>
