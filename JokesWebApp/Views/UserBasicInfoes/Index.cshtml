@@ -77,7 +77,39 @@
         </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                @if (Model==null||Model.Insurance == null)
+                {
+                  <div class="incomplete-profile">
+                    <img src="@Url.Content("~/Media/empty-folder.png")" />
+                        <a asp-action="Create" asp-controller="UserInsurances"><button type="button" class="btn btn-primary">Add insurance</button></a>
+                    </div>
+                }
+                else
+                {
+                    @foreach(var insurance in Model.Insurance)
+                    {
+                       <div class="card">
+                           <div class="card-body">
+                               <h5>@insurance.CompanyName</h5>
+                               <div class="information">
+                                   <div class="field">
+                                       <p>Group Number</p>
+                                       <p>Policy Number</p>
+                                       <p>Copay Amount</p>
+                                   </div>
+                                   <div class="value">
+                                       <p>@insurance.GroupNumber</p>
+                                       <p>@insurance.PolicyNumber</p>
+                                       <p>@insurance.CoPayAmount</p>
+                                   </div>
+                               </div>
+                               <a asp-action="DeleteInsurance" asp-route-id=@insurance.Id class="btn btn-primary">Delete</a>
+                           </div>
+                       </div>
+                    }
+                }
+
+
             </div>
         </div>
     </div>

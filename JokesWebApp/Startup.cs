@@ -1,3 +1,4 @@
+using JokesWebApp.Controllers;
 using JokesWebApp.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,6 +35,8 @@ namespace JokesWebApp
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddTransient<UserInsurancesController>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -14,10 +14,11 @@ namespace JokesWebApp.Controllers
     public class UserBasicInfoesController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public UserBasicInfoesController(ApplicationDbContext context)
+        private readonly UserInsurancesController _userInsurancesController;
+        public UserBasicInfoesController(ApplicationDbContext context,UserInsurancesController userInsurancesController)
         {
             _context = context;
+            _userInsurancesController= userInsurancesController;
         }
 
         // GET: UserBasicInfoes
@@ -25,7 +26,10 @@ namespace JokesWebApp.Controllers
         public async Task<IActionResult> Index()
         {
             string userEmail = User.Identity.Name;
-            return View(_context.UserBasicInfoes.Where(u => u.Email == userEmail).FirstOrDefault());
+            var user= _context.UserBasicInfoes.Where(u => u.Email == userEmail).FirstOrDefault();
+            _context.Entry(user).Collection(u=>u.Insurance).Load();
+            
+            return View(user);
         }
 
 
@@ -49,7 +53,8 @@ namespace JokesWebApp.Controllers
             {
                 _context.Add(userBasicInfo);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                return RedirectToAction("Index","UserBasicInfoes");
             }
             return View(userBasicInfo);
         }
@@ -57,8 +62,7 @@ namespace JokesWebApp.Controllers
         // GET: UserBasicInfoes/Edit/5
         [Authorize]
         public async Task<IActionResult> Edit()
-        {
-            
+        { 
 
             var userBasicInfo = await _context.UserBasicInfoes.Where(u=>u.Email==User.Identity.Name).FirstOrDefaultAsync();
             if (userBasicInfo == null)
@@ -136,5 +140,23 @@ namespace JokesWebApp.Controllers
         {
             return _context.UserBasicInfoes.Any(e => e.Id == id);
         }
+
+        // method outside CRUD
+        [Authorize]
+        public IActionResult AddInsurance()
+        {
+            return _userInsurancesController.Create();
+        }
+        [Authorize]
+        public IActionResult DeleteInsurance(int? Id)
+        {
+            var model = _context.UserBasicInfoes.Where(u => u.Email == User.Identity.Name).FirstOrDefault();
+            var insurance=_context.UserInsurance.Where(u => u.Id == Id);
+            return View("~/Views/UserInsurances/Delete.cshtml",insurance);
+        }
     }
+
+
+
+    
 }

@@ -25,10 +25,11 @@
   border: none;
   background-color: black;
 }
-.Complete-profile .information {
+
+.information {
   display: flex;
   gap: 60px;
 }
-.Complete-profile .information .field {
+.information .field {
   font-weight: bold;
 }
