@@ -28,6 +28,7 @@
 
 .information {
   display: flex;
+  justify-content: center;
   gap: 60px;
 }
 .information .field {
