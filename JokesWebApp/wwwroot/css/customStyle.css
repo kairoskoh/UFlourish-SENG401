@@ -25,10 +25,40 @@
   border: none;
   background-color: black;
 }
-.Complete-profile .information {
+
+.information {
   display: flex;
+  justify-content: center;
   gap: 60px;
 }
-.Complete-profile .information .field {
+.information .field {
   font-weight: bold;
+}
+
+.card-tile {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+}
+.card-tile img {
+  width: 20px;
+}
+.card-tile .card-number {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.card-tile .expiry-date {
+  font-size: 16px;
+  color: #555;
+}
+
+.column-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
 }

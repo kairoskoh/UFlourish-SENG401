@@ -1,4 +1,6 @@
-﻿namespace JokesWebApp.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace JokesWebApp.Models
 {
     public class UserInsurance
     {
@@ -8,6 +10,9 @@
         public string PolicyNumber { get; set; }
         public int CoPayAmount { get; set; }
 
-        public UserBasicInfo User { get; set; }
+        public int UserId { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual UserBasicInfo User { get; set; }
     }
 }

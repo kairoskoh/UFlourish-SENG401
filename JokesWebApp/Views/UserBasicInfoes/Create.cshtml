@@ -5,6 +5,14 @@
     var UserEmail = ViewData["email"] as string;
 }
 
+@if (TempData["Message"] != null)
+{
+    <script>alert('@TempData["Message"]');</script>
+    TempData.Clear();
+}
+
+
+
 <h1>Complete user profile here</h1>
 
 <hr />

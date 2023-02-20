@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace JokesWebApp.Models
 {
@@ -21,7 +22,8 @@ namespace JokesWebApp.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        public ICollection<UserInsurance>? Insurance { get; set; }
+        
+        public virtual ICollection<UserInsurance>? Insurance { get; set; }
         public ICollection<UserPayment>? Payments { get; set; }
 
 
