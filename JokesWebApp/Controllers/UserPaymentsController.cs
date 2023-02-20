@@ -127,7 +127,7 @@ namespace JokesWebApp.Controllers
         }
 
         // GET: UserPayments/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -136,7 +136,7 @@ namespace JokesWebApp.Controllers
 
             var userPayment = await _context.UserPayment
                 .Include(u => u.User)
-                .FirstOrDefaultAsync(m => m.CardNumber == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (userPayment == null)
             {
                 return NotFound();
@@ -148,12 +148,12 @@ namespace JokesWebApp.Controllers
         // POST: UserPayments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var userPayment = await _context.UserPayment.FindAsync(id);
             _context.UserPayment.Remove(userPayment);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index","UserBasicInfoes");
         }
 
         private bool UserPaymentExists(string id)

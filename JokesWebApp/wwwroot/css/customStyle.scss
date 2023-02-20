@@ -73,3 +73,10 @@
         color: #555;
     }
 }
+
+.column-card-list{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    text-align:center;
+}
