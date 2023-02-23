@@ -37,18 +37,6 @@ namespace JokesWebApp.Data.Migrations
                     b.ToTable("Joke");
                 });
 
-            modelBuilder.Entity("JokesWebApp.Models.MentalHealth", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("MentalHealth");
-                });
-
             modelBuilder.Entity("JokesWebApp.Models.Request_Mental_Health", b =>
                 {
                     b.Property<int>("ID")
@@ -56,8 +44,11 @@ namespace JokesWebApp.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("MyValue")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 

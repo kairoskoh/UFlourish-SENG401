@@ -15,6 +15,6 @@ namespace JokesWebApp.Data
         }
         public DbSet<JokesWebApp.Models.Joke> Joke { get; set; }
         public DbSet<JokesWebApp.Models.Request_Mental_Health> Request_Mental_Health { get; set; }
-        public DbSet<JokesWebApp.Models.MentalHealth> MentalHealth { get; set; }
+    
     }
 }

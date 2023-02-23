@@ -4,16 +4,23 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Request for Mental Support</h1>
+<p>This page provides patients the option to request for mental support. Patients can book, cancel, reschedule appointments from this page. </p>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Create a new appointment</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.MyValue)
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
             </th>
             <th></th>
         </tr>
@@ -22,7 +29,13 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.MyValue)
+                   @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                   @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                   @Html.DisplayFor(modelItem => item.UserName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |

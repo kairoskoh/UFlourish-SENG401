@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using JokesWebApp.Data;
 using JokesWebApp.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace JokesWebApp.Controllers
 {
@@ -44,6 +45,8 @@ namespace JokesWebApp.Controllers
         }
 
         // GET: Request_Mental_Health/Create
+        [Authorize]
+        //this "Authorize" keyword is requried so that the person has to login before entering the data on the form
         public IActionResult Create()
         {
             return View();
@@ -52,9 +55,10 @@ namespace JokesWebApp.Controllers
         // POST: Request_Mental_Health/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,MyValue")] Request_Mental_Health request_Mental_Health)
+        public async Task<IActionResult> Create([Bind("ID,UserName", "Date")] Request_Mental_Health request_Mental_Health)
         {
             if (ModelState.IsValid)
             {
@@ -66,6 +70,7 @@ namespace JokesWebApp.Controllers
         }
 
         // GET: Request_Mental_Health/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -84,9 +89,10 @@ namespace JokesWebApp.Controllers
         // POST: Request_Mental_Health/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,MyValue")] Request_Mental_Health request_Mental_Health)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,UserName", "Date")] Request_Mental_Health request_Mental_Health)
         {
             if (id != request_Mental_Health.ID)
             {
@@ -117,6 +123,7 @@ namespace JokesWebApp.Controllers
         }
 
         // GET: Request_Mental_Health/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,6 +142,7 @@ namespace JokesWebApp.Controllers
         }
 
         // POST: Request_Mental_Health/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

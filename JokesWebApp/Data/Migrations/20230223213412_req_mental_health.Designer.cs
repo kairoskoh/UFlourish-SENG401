@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JokesWebApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230218070912_req_mental_health")]
+    [Migration("20230223213412_req_mental_health")]
     partial class req_mental_health
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,18 +39,6 @@ namespace JokesWebApp.Data.Migrations
                     b.ToTable("Joke");
                 });
 
-            modelBuilder.Entity("JokesWebApp.Models.MentalHealth", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("MentalHealth");
-                });
-
             modelBuilder.Entity("JokesWebApp.Models.Request_Mental_Health", b =>
                 {
                     b.Property<int>("ID")
@@ -58,8 +46,11 @@ namespace JokesWebApp.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("MyValue")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
