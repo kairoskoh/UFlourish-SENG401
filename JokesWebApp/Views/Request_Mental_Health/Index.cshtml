@@ -10,6 +10,8 @@
 <p>
     <a asp-action="Create">Create a new appointment</a>
 </p>
+<p>Current Logged in User := @ViewData["email"] </p>
+
 <table class="table">
     <thead>
         <tr>
@@ -35,7 +37,7 @@
                    @Html.DisplayFor(modelItem => item.ID)
             </td>
             <td>
-                   @Html.DisplayFor(modelItem => item.UserName)
+                   @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |

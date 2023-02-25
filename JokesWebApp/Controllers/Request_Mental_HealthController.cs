@@ -8,13 +8,15 @@ using Microsoft.EntityFrameworkCore;
 using JokesWebApp.Data;
 using JokesWebApp.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Threading;
+using System.Diagnostics;
 
 namespace JokesWebApp.Controllers
 {
     public class Request_Mental_HealthController : Controller
     {
         private readonly ApplicationDbContext _context;
-
+      
         public Request_Mental_HealthController(ApplicationDbContext context)
         {
             _context = context;
@@ -23,6 +25,11 @@ namespace JokesWebApp.Controllers
         // GET: Request_Mental_Health
         public async Task<IActionResult> Index()
         {
+            string userEmail = User.Identity.Name;
+            //gives the current logged in user name
+            //Debug.WriteLine(userEmail);
+            //return it to main page
+            ViewData["email"] = userEmail;
             return View(await _context.Request_Mental_Health.ToListAsync());
         }
 
@@ -42,6 +49,7 @@ namespace JokesWebApp.Controllers
             }
 
             return View(request_Mental_Health);
+            
         }
 
         // GET: Request_Mental_Health/Create
