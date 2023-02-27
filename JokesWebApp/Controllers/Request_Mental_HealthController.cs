@@ -30,12 +30,20 @@ namespace JokesWebApp.Controllers
             //Debug.WriteLine(userEmail);
             //return it to main page
             ViewData["email"] = userEmail;
-            return View(await _context.Request_Mental_Health.ToListAsync());
+            //return View(await _context.Request_Mental_Health.ToListAsync());
+            //return View("Index", await _context.Joke.Where(j => j.JokeQuestion.Contains(SearchJokeQuestion)).ToListAsync());
+            return View("Index", await _context.Request_Mental_Health.Where(j =>j.UserName.Contains(userEmail)).ToListAsync());
         }
 
         // GET: Request_Mental_Health/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            string userEmail = User.Identity.Name;
+            //gives the current logged in user name
+            //Debug.WriteLine(userEmail);
+            //return it to main page
+            ViewData["email"] = userEmail;
+
             if (id == null)
             {
                 return NotFound();
@@ -57,6 +65,12 @@ namespace JokesWebApp.Controllers
         //this "Authorize" keyword is requried so that the person has to login before entering the data on the form
         public IActionResult Create()
         {
+            string userEmail = User.Identity.Name;
+            //gives the current logged in user name
+            //Debug.WriteLine(userEmail);
+            //return it to main page
+            ViewData["email"] = userEmail;
+
             return View();
         }
 
@@ -68,6 +82,13 @@ namespace JokesWebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,UserName", "Date")] Request_Mental_Health request_Mental_Health)
         {
+
+            string userEmail = User.Identity.Name;
+            //gives the current logged in user name
+            //Debug.WriteLine(userEmail);
+            //return it to main page
+            ViewData["email"] = userEmail;
+
             if (ModelState.IsValid)
             {
                 _context.Add(request_Mental_Health);
@@ -81,6 +102,12 @@ namespace JokesWebApp.Controllers
         [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
+            string userEmail = User.Identity.Name;
+            //gives the current logged in user name
+            //Debug.WriteLine(userEmail);
+            //return it to main page
+            ViewData["email"] = userEmail;
+
             if (id == null)
             {
                 return NotFound();
@@ -102,6 +129,12 @@ namespace JokesWebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,UserName", "Date")] Request_Mental_Health request_Mental_Health)
         {
+            string userEmail = User.Identity.Name;
+            //gives the current logged in user name
+            //Debug.WriteLine(userEmail);
+            //return it to main page
+            ViewData["email"] = userEmail;
+
             if (id != request_Mental_Health.ID)
             {
                 return NotFound();
@@ -134,6 +167,12 @@ namespace JokesWebApp.Controllers
         [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
+            string userEmail = User.Identity.Name;
+            //gives the current logged in user name
+            //Debug.WriteLine(userEmail);
+            //return it to main page
+            ViewData["email"] = userEmail;
+
             if (id == null)
             {
                 return NotFound();
