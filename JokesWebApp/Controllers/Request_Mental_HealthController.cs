@@ -31,8 +31,9 @@ namespace JokesWebApp.Controllers
             //return it to main page
             ViewData["email"] = userEmail;
             //return View(await _context.Request_Mental_Health.ToListAsync());
-            //return View("Index", await _context.Joke.Where(j => j.JokeQuestion.Contains(SearchJokeQuestion)).ToListAsync());
-            return View("Index", await _context.Request_Mental_Health.Where(j =>j.UserName.Contains(userEmail)).ToListAsync());
+
+            //the following will only show the appointments with the user currently logged in
+            return View("Index", await _context.Request_Mental_Health.Where(j =>j.UserName.Contains(userEmail)).ToListAsync());     
         }
 
         // GET: Request_Mental_Health/Details/5
