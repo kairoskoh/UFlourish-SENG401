@@ -1,4 +1,6 @@
-﻿namespace JokesWebApp.Models
+﻿using System;
+
+namespace JokesWebApp.Models
 {
     public class RefillPrescriptions
     {
@@ -7,6 +9,8 @@
         public string MedicineName { get; set; }
 
         public string RefillDate { get; set;}
+
+        //public DateTime PickupDate { get; set; } = DateTime.Now;
 
         public RefillPrescriptions()
         {

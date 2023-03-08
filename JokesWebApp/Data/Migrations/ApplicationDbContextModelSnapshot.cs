@@ -50,6 +50,9 @@ namespace JokesWebApp.Data.Migrations
                     b.Property<string>("RefillDate")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("RequestDate")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.ToTable("RefillPrescriptions");
