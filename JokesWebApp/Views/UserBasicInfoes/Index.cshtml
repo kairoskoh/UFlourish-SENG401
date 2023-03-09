@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
-    var UserId = Model.Id;
+    //var UserId = Model.Id;
 }
 
 <h1>Profile</h1>
@@ -132,11 +132,18 @@
         </h2>
         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-                @if (Model == null || Model.Payments == null || !Model.Payments.Any())
+                @if (Model == null)
                 {
                     <div class="incomplete-profile">
                         <img src="@Url.Content("~/Media/icons8-add-card-58.png")" />
-                        <a asp-action="Create" asp-controller="UserPayments" asp-route-id="@Model.Id"><button type="button" class="btn btn-primary">Add Payment</button></a>
+                        <p>Please complete your user profile first</p>
+                    </div>
+                }
+                else if ( Model.Payments == null || !Model.Payments.Any())
+                {
+                    <div class="incomplete-profile">
+                        <img src="@Url.Content("~/Media/icons8-add-card-58.png")" />
+                        <a asp-action="Create" asp-controller="UserPayments" ><button type="button" class="btn btn-primary">Add Payment</button></a>
                     </div>
                 }
                 else
