@@ -33,6 +33,9 @@
                 <span asp-validation-for="CoPayAmount" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <input asp-for="UserId" class="form-control" value="@Model.UserId" readonly/>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>

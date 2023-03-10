@@ -45,9 +45,9 @@ namespace JokesWebApp.Controllers
         }
 
         // GET: UserInsurances/Create
-        public IActionResult Create()
+        public IActionResult Create(int Id)
         {
-            return View();
+            return View(new UserInsurance { UserId = Id });
         }
 
         // POST: UserInsurances/Create
@@ -56,16 +56,10 @@ namespace JokesWebApp.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CompanyName,GroupNumber,PolicyNumber,CoPayAmount")] UserInsurance userInsurance)
+        public async Task<IActionResult> Create([Bind("CompanyName,GroupNumber,PolicyNumber,CoPayAmount,UserId")] UserInsurance userInsurance)
         {
-            var user = _context.UserBasicInfoes.Where(u => u.Email == User.Identity.Name).FirstOrDefault();
-            if(user==null)
-            {
-                TempData["Message"] = "Please complete your user profile before we can process your insurance";
-                return RedirectToAction("Create","UserBasicInfoes");
-            }
+           
 
-            userInsurance.User= user;
 
             if (ModelState.IsValid)
             {
