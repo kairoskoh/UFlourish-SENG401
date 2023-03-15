@@ -41,25 +41,22 @@
         var curr_year = DateTime.Now.Year;
 
         var dateCompare = item.Date.CompareTo(DateTime.Now);
+       
         @if(dateCompare > 0) //Date is in future
         {
             @if (item.Date.Month.Equals(month)) //if future data is in current month
             {
                 var updated = day + 5;
                 //check if the date is within today and next 5 days, if yes display it.
-                @if (item.Date.Day < updated)
+                @if (item.Date.Day <= updated)
                 {
                     <p>
                         Appointment scheduled for @Html.DisplayFor(modelItem => item.Date) for user name  @Html.DisplayFor(modelItem => item.UserName)
-                     </p>
-                }
-                
+                    </p>
+                }   
             }
-
-
-    }
-
-    }
+        }
+ }
 </div>
 <hr />
 <h5>You current scheduled appoitments are:</h5>
@@ -80,16 +77,25 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model) 
+{
+    var day = DateTime.Now.Day;
+    var month = DateTime.Now.Month;
+    var curr_year = DateTime.Now.Year;
+
+    var dateCompare = item.Date.CompareTo(DateTime.Now);
+
+    @if (dateCompare > 0) //Date is in future
+    {
         <tr>
             <td>
-                   @Html.DisplayFor(modelItem => item.UserName)
+                @Html.DisplayFor(modelItem => item.UserName)
             </td>
             <td>
-                   @Html.DisplayFor(modelItem => item.ID)
+                @Html.DisplayFor(modelItem => item.ID)
             </td>
             <td>
-                   @Html.DisplayFor(modelItem => item.Date)
+                @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
@@ -97,6 +103,7 @@
                 <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
             </td>
         </tr>
+    }
 }
     </tbody>
 </table>
