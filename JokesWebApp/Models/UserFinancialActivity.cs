@@ -8,7 +8,7 @@ namespace JokesWebApp.Models
     public class UserFinancialActivity
     {
         public int Id { get; set; } // Primary Key
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public string TransactionName { get; set; }
         public string TransactionType { get; set; }
         public string PostedDate { get; set; }

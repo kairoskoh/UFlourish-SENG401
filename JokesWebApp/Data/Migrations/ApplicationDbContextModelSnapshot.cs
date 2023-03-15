@@ -95,8 +95,8 @@ namespace JokesWebApp.Data.Migrations
                     b.Property<string>("TransactionType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
