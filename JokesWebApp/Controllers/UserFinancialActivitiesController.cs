@@ -23,7 +23,17 @@ namespace JokesWebApp.Controllers
         // GET: UserFinancialActivities
         public async Task<IActionResult> Index()
         {
-            return View(await _context.UserFinancialActivity.ToListAsync());
+            string userEmail = User.Identity.Name;
+            string adminEmail = "admin123@gmail.com";
+            ViewData["email"] = userEmail;
+            if (userEmail.Equals(adminEmail))
+            {
+                return View(await _context.UserFinancialActivity.ToListAsync());
+            }
+            else
+            {
+                return View("Index", await _context.UserFinancialActivity.Where(j => j.UserId.Contains(userEmail)).ToListAsync());
+            }
         }
         [Authorize]
         // GET: UserFinancialActivities/Details/5

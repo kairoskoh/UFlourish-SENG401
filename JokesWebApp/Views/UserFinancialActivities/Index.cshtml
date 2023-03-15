@@ -4,14 +4,24 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<h1>Account Summary</h1>
+@if (@ViewData["email"]?.ToString() == "admin123@gmail.com")
+{
+    // code to be rendered if ViewData["email"] equals to "admin123@gmail.com"
+    <p>
+        <a asp-action="Create">Create New Billing</a>
+    </p>
+}
 <table class="table">
     <thead>
         <tr>
+            @if (@ViewData["email"]?.ToString() == "admin123@gmail.com")
+            {
+                // code to be rendered if ViewData["email"] equals to "admin123@gmail.com"
+            <th>
+                User
+            </th>
+            }
             <th>
                 @* @Html.DisplayNameFor(model => model.TransactionName)*@
                 Item
@@ -40,8 +50,16 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
         <tr>
+            @if (@ViewData["email"]?.ToString() == "admin123@gmail.com")
+            {
+                // code to be rendered if ViewData["email"] equals to "admin123@gmail.com"
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserId)
+                </td>
+            }
             <td>
                 @Html.DisplayFor(modelItem => item.TransactionName)
             </td>
@@ -63,12 +81,16 @@
             <td>
                 $@Html.DisplayFor(modelItem => item.Refund)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
+            @if (@ViewData["email"]?.ToString() == "admin123@gmail.com")
+            {
+                // code to be rendered if ViewData["email"] equals to "admin123@gmail.com"
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            }
         </tr>
-}
+        }
     </tbody>
 </table>
