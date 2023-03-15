@@ -40,8 +40,8 @@ namespace JokesWebApp.Data.Migrations
 
             modelBuilder.Entity("JokesWebApp.Models.Request_Mental_Health", b =>
                 {
-                    b.Property<int>("ID")
-
+                    b.Property<int>("ID");
+                });
             modelBuilder.Entity("JokesWebApp.Models.UserBasicInfo", b =>
                 {
                     b.Property<int>("Id")
@@ -57,7 +57,7 @@ namespace JokesWebApp.Data.Migrations
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("Request_Mental_Health");
 
