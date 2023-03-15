@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using JokesWebApp.Data;
 using JokesWebApp.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace JokesWebApp.Controllers
 {
@@ -18,13 +19,13 @@ namespace JokesWebApp.Controllers
         {
             _context = context;
         }
-
+        [Authorize]
         // GET: UserFinancialActivities
         public async Task<IActionResult> Index()
         {
             return View(await _context.UserFinancialActivity.ToListAsync());
         }
-
+        [Authorize]
         // GET: UserFinancialActivities/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -42,13 +43,13 @@ namespace JokesWebApp.Controllers
 
             return View(userFinancialActivity);
         }
-
+        [Authorize]
         // GET: UserFinancialActivities/Create
         public IActionResult Create()
         {
             return View();
         }
-
+        [Authorize]
         // POST: UserFinancialActivities/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -64,7 +65,7 @@ namespace JokesWebApp.Controllers
             }
             return View(userFinancialActivity);
         }
-
+        [Authorize]
         // GET: UserFinancialActivities/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -80,7 +81,7 @@ namespace JokesWebApp.Controllers
             }
             return View(userFinancialActivity);
         }
-
+        [Authorize]
         // POST: UserFinancialActivities/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -115,7 +116,7 @@ namespace JokesWebApp.Controllers
             }
             return View(userFinancialActivity);
         }
-
+        [Authorize]
         // GET: UserFinancialActivities/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -133,7 +134,7 @@ namespace JokesWebApp.Controllers
 
             return View(userFinancialActivity);
         }
-
+        [Authorize]
         // POST: UserFinancialActivities/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
