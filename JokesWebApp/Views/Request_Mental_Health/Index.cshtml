@@ -12,8 +12,58 @@
 </p>
 <p>Current Logged in User := @ViewData["email"] </p>
 
-<h5>You current scheduled appoitments are:</h5>
+<!-- Displaying current date and time -->
+<!-- https://www.quora.com/How-can-I-display-the-current-date-in-an-HTML-form -->
+<p id="myId"></p>
+<script>
+    var date = new Date();
+    var dd = date.getDate();
+    var month = date.getMonth() + 1;
+    var yyyy = date.getFullYear();
+    var hh = date.getHours();
+    var mm = date.getMinutes();
+    var ss = "00";
+    var am_or_pm = hh >=12 ? " PM" : " AM";
+   
+    var newDate = dd + "-" + month + "-" + yyyy + " " + hh + ":" + mm +":"+ ss + am_or_pm;
+    var completeDate = "Current Date and time: " + newDate;
+    var p = document.getElementById("myId");
+    p.innerHTML = completeDate;
+</script>
 
+<hr />
+<div style="background-color:#b1f2ff">
+<h5>Your appointments in next 5 days:</h5>
+@foreach (var item in Model) 
+{
+        var day = DateTime.Now.Day;
+        var month = DateTime.Now.Month;
+        var curr_year = DateTime.Now.Year;
+
+        var dateCompare = item.Date.CompareTo(DateTime.Now);
+        @if(dateCompare > 0) //Date is in future
+        {
+            @if (item.Date.Month.Equals(month)) //if future data is in current month
+            {
+                var updated = day + 5;
+                //check if the date is within today and next 5 days, if yes display it.
+                @if (item.Date.Day < updated)
+                {
+                    <p>
+                        Appointment scheduled for @Html.DisplayFor(modelItem => item.Date) for user name  @Html.DisplayFor(modelItem => item.UserName)
+                     </p>
+                }
+                
+            }
+
+
+    }
+
+    }
+</div>
+<hr />
+<h5>You current scheduled appoitments are:</h5>
+<br />
 <table class="table">
     <thead>
         <tr>
