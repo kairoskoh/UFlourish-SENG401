@@ -26,6 +26,7 @@ namespace JokesWebApp.Controllers
         public async Task<IActionResult> Index()
         {
             string userEmail = User.Identity.Name;
+            string adminEmail = "admin123@gmail.com";
             //gives the current logged in user name
             //Debug.WriteLine(userEmail);
             //return it to main page
@@ -33,7 +34,15 @@ namespace JokesWebApp.Controllers
             //return View(await _context.Request_Mental_Health.ToListAsync());
 
             //the following will only show the appointments with the user currently logged in
-            return View("Index", await _context.Request_Mental_Health.Where(j =>j.UserName.Contains(userEmail)).ToListAsync());     
+            if(userEmail.Equals(adminEmail))
+            {
+                return View(await _context.Request_Mental_Health.ToListAsync());
+            }
+            else
+            {
+                return View("Index", await _context.Request_Mental_Health.Where(j => j.UserName.Contains(userEmail)).ToListAsync());
+            }
+            
         }
 
         // GET: Request_Mental_Health/Details/5
