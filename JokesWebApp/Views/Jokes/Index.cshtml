@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<JokesWebApp.Models.Joke>
-
+<!--we have a list of jokes-->
 @{
     ViewData["Title"] = "Index";
 }
@@ -17,6 +17,8 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.JokeAnswer)
+                <!--display the joke answer, if deleted, the joke answer column will be hidden from the page-->
+                <!-- this  is the column header-->
             </th>
             <th></th>
         </tr>
@@ -29,6 +31,7 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.JokeAnswer)
+                <!--This is the joke answer for each joke displayed on the web page, if deleted, the joke answer will be deleted-->
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

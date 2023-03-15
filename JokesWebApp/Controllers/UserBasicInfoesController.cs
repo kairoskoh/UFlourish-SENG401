@@ -27,9 +27,13 @@ namespace JokesWebApp.Controllers
         {
             string userEmail = User.Identity.Name;
             var user= _context.UserBasicInfoes.Where(u => u.Email == userEmail).FirstOrDefault();
-            _context.Entry(user).Collection(u=>u.Insurance).Load();
-            _context.Entry(user).Collection(u=>u.Payments).Load();
-            
+            if (user != null)
+            {
+                _context.Entry(user).Collection(u => u.Insurance).Load();
+                _context.Entry(user).Collection(u => u.Payments).Load();
+
+            }
+
             return View(user);
         }
 

@@ -1,0 +1,109 @@
+﻿@model IEnumerable<JokesWebApp.Models.Request_Mental_Health>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Request for Mental Support</h1>
+<p>This page provides patients the option to request for mental support. Patients can book, cancel, reschedule appointments from this page. </p>
+
+<p>
+    <a asp-action="Create">Create a new appointment</a>
+</p>
+<p>Current Logged in User := @ViewData["email"] </p>
+
+<!-- Displaying current date and time -->
+<!-- https://www.quora.com/How-can-I-display-the-current-date-in-an-HTML-form -->
+<p id="myId"></p>
+<script>
+    var date = new Date();
+    var dd = date.getDate();
+    var month = date.getMonth() + 1;
+    var yyyy = date.getFullYear();
+    var hh = date.getHours();
+    var mm = date.getMinutes();
+    var ss = "00";
+    var am_or_pm = hh >=12 ? " PM" : " AM";
+   
+    var newDate = dd + "-" + month + "-" + yyyy + " " + hh + ":" + mm +":"+ ss + am_or_pm;
+    var completeDate = "Current Date and time: " + newDate;
+    var p = document.getElementById("myId");
+    p.innerHTML = completeDate;
+</script>
+
+<hr />
+<div style="background-color:#b1f2ff">
+<h5>Your appointments in next 5 days:</h5>
+@foreach (var item in Model) 
+{
+        var day = DateTime.Now.Day;
+        var month = DateTime.Now.Month;
+        var curr_year = DateTime.Now.Year;
+
+        var dateCompare = item.Date.CompareTo(DateTime.Now);
+       
+        @if(dateCompare > 0) //Date is in future
+        {
+            @if (item.Date.Month.Equals(month)) //if future data is in current month
+            {
+                var updated = day + 5;
+                //check if the date is within today and next 5 days, if yes display it.
+                @if (item.Date.Day <= updated)
+                {
+                    <p>
+                        Appointment scheduled for @Html.DisplayFor(modelItem => item.Date) for user name  @Html.DisplayFor(modelItem => item.UserName)
+                    </p>
+                }   
+            }
+        }
+ }
+</div>
+<hr />
+<h5>You current scheduled appoitments are:</h5>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) 
+{
+    var day = DateTime.Now.Day;
+    var month = DateTime.Now.Month;
+    var curr_year = DateTime.Now.Year;
+
+    var dateCompare = item.Date.CompareTo(DateTime.Now);
+
+    @if (dateCompare > 0) //Date is in future
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+    }
+}
+    </tbody>
+</table>
