@@ -56,7 +56,7 @@ namespace JokesWebApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,MedicineName,RefillDate")] RefillPrescriptions refillPrescriptions)
+        public async Task<IActionResult> Create([Bind("Id,MedicineName,RequestRefillDate")] RefillPrescriptions refillPrescriptions)
         {
             if (ModelState.IsValid)
             {

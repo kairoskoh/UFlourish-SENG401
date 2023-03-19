@@ -9,15 +9,15 @@ namespace JokesWebApp.Data.Migrations
         {
             migrationBuilder.AddColumn<DateTime>(
                 name: "PrescriptionReadyToPickup",
-                table: "RefillPrescriptions",
-                nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                table: "RefillPrescriptions" );
+                //nullable: false,
+                //defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
 
             migrationBuilder.AddColumn<DateTime>(
                 name: "RequestRefillDate",
-                table: "RefillPrescriptions",
-                nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                table: "RefillPrescriptions" );
+            //nullable: false,
+            //defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

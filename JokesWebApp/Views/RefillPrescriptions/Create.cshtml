@@ -13,12 +13,12 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="MedicineName" class="control-label"></label>
+                <label asp-for="MedicineName" class="control-label">Medince Name</label>
                 <input asp-for="MedicineName" class="form-control" />
                 <span asp-validation-for="MedicineName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RequestRefillDate" class="control-label"></label>
+                <label asp-for="RequestRefillDate" class="control-label">Date of Your Request</label>
                 <input asp-for="RequestRefillDate" class="form-control" />
                 <span asp-validation-for="RequestRefillDate" class="text-danger"></span>
             </div>
