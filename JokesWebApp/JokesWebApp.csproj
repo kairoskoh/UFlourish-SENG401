@@ -20,6 +20,16 @@
     <Compile Remove="Data\Migrations\20230308090506_pickupdateV1.Designer.cs" />
     <Compile Remove="Data\Migrations\20230308091704_dateSetup.cs" />
     <Compile Remove="Data\Migrations\20230308091704_dateSetup.Designer.cs" />
+    <Compile Remove="Data\Migrations\20230318231746_UpdateRefillPrescription1.cs" />
+    <Compile Remove="Data\Migrations\20230318231746_UpdateRefillPrescription1.Designer.cs" />
+    <Compile Remove="Data\Migrations\20230318232000_UpdateRefillPrescription1.cs" />
+    <Compile Remove="Data\Migrations\20230318232000_UpdateRefillPrescription1.Designer.cs" />
+    <Compile Remove="Data\Migrations\20230319035720_UpdateRefillPrescription2.cs" />
+    <Compile Remove="Data\Migrations\20230319035720_UpdateRefillPrescription2.Designer.cs" />
+    <Compile Remove="Data\Migrations\20230319035911_UpdateRefillPrescription2.cs" />
+    <Compile Remove="Data\Migrations\20230319035911_UpdateRefillPrescription2.Designer.cs" />
+    <Compile Remove="Data\Migrations\20230319041114_UpdateRefillPrescription1.cs" />
+    <Compile Remove="Data\Migrations\20230319041114_UpdateRefillPrescription1.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

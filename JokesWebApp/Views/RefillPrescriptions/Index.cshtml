@@ -16,19 +16,30 @@
                 @Html.DisplayNameFor(model => model.MedicineName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RefillDate)
+             
+                @Html.DisplayNameFor(model => model.RequestRefillDate)
+                    
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
+
+
 @foreach (var item in Model) {
-        <tr>
-            <td>
+
+        var dateCompare = item.RequestRefillDate.CompareTo(DateTime.Now);
+
+        @if (dateCompare > 0)
+        {
+                <tr>
+                    <td>
                 @Html.DisplayFor(modelItem => item.MedicineName)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.RefillDate)
+            
+                @Html.DisplayFor(modelItem => item.RequestRefillDate)
+                    
             </td>
             <td>
                
@@ -37,7 +48,8 @@
                 @*<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
                 <input type="button" value="Check Status" onclick="location.href='@Url.Action("Details", new { id = @item.Id })'" />
             </td>
-        </tr>
+            </tr>
+        }
 }
     </tbody>
 </table>
