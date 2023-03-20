@@ -15,6 +15,8 @@ namespace JokesWebApp.Controllers
     {
         private readonly ApplicationDbContext _context;
 
+        public string adminEmail = "admin123@gmail.com";
+
         public RefillPrescriptionsController(ApplicationDbContext context)
         {
             _context = context;
@@ -24,12 +26,34 @@ namespace JokesWebApp.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            return View(await _context.RefillPrescriptions.ToListAsync());
+            string userEmail = User.Identity.Name;
+            
+
+            //var user = _context.UserBasicInfoes.Where(x => x.Email == userEmail).FirstOrDefault();
+
+            ViewData["email"] = userEmail;
+
+
+            if (userEmail.Equals(adminEmail))
+            {
+                return View(await _context.RefillPrescriptions.ToListAsync());
+            }
+            else
+            {
+                return View(await _context.RefillPrescriptions.Where(j => j.UserName.Contains(userEmail)).ToListAsync());
+            }
+            
         }
 
         // GET: RefillPrescriptions/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            string userEmail = User.Identity.Name;
+            //gives the current logged in user name
+            //Debug.WriteLine(userEmail);
+            //return it to main page
+            ViewData["email"] = userEmail;
+
             if (id == null)
             {
                 return NotFound();
@@ -46,18 +70,31 @@ namespace JokesWebApp.Controllers
         }
 
         // GET: RefillPrescriptions/Create
+        [Authorize]
         public IActionResult Create()
         {
+            string userEmail = User.Identity.Name;
+            //gives the current logged in user name
+            //Debug.WriteLine(userEmail);
+            //return it to main page
+            ViewData["email"] = userEmail;
             return View();
         }
 
         // POST: RefillPrescriptions/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,MedicineName,RequestRefillDate")] RefillPrescriptions refillPrescriptions)
+        public async Task<IActionResult> Create([Bind("Id,UserName,MedicineName,RequestRefillDate")] RefillPrescriptions refillPrescriptions)
         {
+            string userEmail = User.Identity.Name;
+            //gives the current logged in user name
+            //Debug.WriteLine(userEmail);
+            //return it to main page
+            ViewData["email"] = userEmail;
+
             if (ModelState.IsValid)
             {
                 _context.Add(refillPrescriptions);
@@ -68,8 +105,15 @@ namespace JokesWebApp.Controllers
         }
 
         // GET: RefillPrescriptions/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
+            string userEmail = User.Identity.Name;
+            //gives the current logged in user name
+            //Debug.WriteLine(userEmail);
+            //return it to main page
+            ViewData["email"] = userEmail;
+
             if (id == null)
             {
                 return NotFound();
@@ -86,10 +130,17 @@ namespace JokesWebApp.Controllers
         // POST: RefillPrescriptions/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,MedicineName,RefillDate")] RefillPrescriptions refillPrescriptions)
         {
+            string userEmail = User.Identity.Name;
+            //gives the current logged in user name
+            //Debug.WriteLine(userEmail);
+            //return it to main page
+            ViewData["email"] = userEmail;
+
             if (id != refillPrescriptions.Id)
             {
                 return NotFound();
@@ -119,8 +170,15 @@ namespace JokesWebApp.Controllers
         }
 
         // GET: RefillPrescriptions/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
+            string userEmail = User.Identity.Name;
+            //gives the current logged in user name
+            //Debug.WriteLine(userEmail);
+            //return it to main page
+            ViewData["email"] = userEmail;
+
             if (id == null)
             {
                 return NotFound();
@@ -137,6 +195,7 @@ namespace JokesWebApp.Controllers
         }
 
         // POST: RefillPrescriptions/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

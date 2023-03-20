@@ -7,6 +7,7 @@ namespace JokesWebApp.Models
     {
         public int Id { get; set; }
 
+        public string UserName { get; set; }
         public string MedicineName { get; set; }
 
         [DataType(DataType.Date)]
