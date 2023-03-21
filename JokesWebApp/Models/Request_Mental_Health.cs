@@ -5,7 +5,7 @@ namespace JokesWebApp.Models
 {
     public class Request_Mental_Health
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         public String UserName { get; set; }
 
