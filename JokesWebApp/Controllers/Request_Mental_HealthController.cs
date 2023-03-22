@@ -23,6 +23,7 @@ namespace JokesWebApp.Controllers
         }
 
         // GET: Request_Mental_Health
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             string userEmail = User.Identity.Name;
@@ -48,7 +49,11 @@ namespace JokesWebApp.Controllers
         // GET: Request_Mental_Health/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            string userEmail = User.Identity.Name;
+            string userEmail = "DEFAULT";
+            if (User.Identity.Name is null)
+            {
+                userEmail = User.Identity.Name;
+            }
             //gives the current logged in user name
             //Debug.WriteLine(userEmail);
             //return it to main page
@@ -60,7 +65,7 @@ namespace JokesWebApp.Controllers
             }
 
             var request_Mental_Health = await _context.Request_Mental_Health
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (request_Mental_Health == null)
             {
                 return NotFound();
@@ -75,7 +80,11 @@ namespace JokesWebApp.Controllers
         //this "Authorize" keyword is requried so that the person has to login before entering the data on the form
         public IActionResult Create()
         {
-            string userEmail = User.Identity.Name;
+            string userEmail = "DEFAULT";
+            if(User.Identity.Name != null)
+            {
+                userEmail = User.Identity.Name;
+            }
             //gives the current logged in user name
             //Debug.WriteLine(userEmail);
             //return it to main page
@@ -145,7 +154,7 @@ namespace JokesWebApp.Controllers
             //return it to main page
             ViewData["email"] = userEmail;
 
-            if (id != request_Mental_Health.ID)
+            if (id != request_Mental_Health.Id)
             {
                 return NotFound();
             }
@@ -159,7 +168,7 @@ namespace JokesWebApp.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!Request_Mental_HealthExists(request_Mental_Health.ID))
+                    if (!Request_Mental_HealthExists(request_Mental_Health.Id))
                     {
                         return NotFound();
                     }
@@ -189,7 +198,7 @@ namespace JokesWebApp.Controllers
             }
 
             var request_Mental_Health = await _context.Request_Mental_Health
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (request_Mental_Health == null)
             {
                 return NotFound();
@@ -212,7 +221,7 @@ namespace JokesWebApp.Controllers
 
         private bool Request_Mental_HealthExists(int id)
         {
-            return _context.Request_Mental_Health.Any(e => e.ID == id);
+            return _context.Request_Mental_Health.Any(e => e.Id == id);
         }
     }
 }

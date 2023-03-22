@@ -1,8 +1,25 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<style>
+    a:link {
+        text-decoration: underline;
+    }
 
+</style>
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to UFlorish</h1><br /><br /><hr />
+    <p><b>What is UFlorish?</b></p>
+    <p>
+        The University of Calgary’s Wellness Center (WC), a primary healthcare resource for many university affiliates, presents a highly unique combination of administrative use cases for which a growing combination of technologies has been gradually implemented. However, the current technological setup remains beset by a variety of inefficiencies and impracticalities, to the detriment of both administrative workflow and client satisfaction. In light of these concerns, we propose the development of uFlourish, a centralized software platform capable of effectively managing the WC’s client interaction needs. Leveraging advantages of the microservice and MVC architectural principles, the design of this platform greatly facilitates extensibility and scalability, accommodating the various foreseeable developments in post-release iterations. We hope for this platform to inspire the development of similar computational solutions to enhance student experience for years to come.
+    </p>
+    <hr />
+    <p><b>How to use UFlorish?</b></p>
+    <p>
+        If you are a returing user and you have already created account with UFlorish please click on the following link:<a style="text-decoration: underline;" class="nav-link text-dark" href="/Identity/Account/Login">"Login into UFlorish"</a>
+    </p>
+    <p>If you are a new user and you have never used UFlorish, please register yourself using the following link:<a style="text-decoration: underline;" class="nav-link text-dark" href="/Identity/Account/Register">"Register with UFlorish"</a></p>
+    <hr />
+
+
 </div>

@@ -27,7 +27,7 @@ namespace JokesWebApp.Controllers
         }
 
         // GET: ShowSearchForm
-        public async Task<IActionResult> ShowSearchForm()
+        public IActionResult ShowSearchForm()
         {
             return View("ShowSearchForm");
         }
