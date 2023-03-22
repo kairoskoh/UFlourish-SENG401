@@ -11,34 +11,32 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace JokesWebApp.Controllers
 {
-    public class JokesController : Controller
+    public class UserFinancialActivitiesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public JokesController(ApplicationDbContext context)
+        public UserFinancialActivitiesController(ApplicationDbContext context)
         {
             _context = context;
         }
-
-        // GET: Jokes
+        [Authorize]
+        // GET: UserFinancialActivities
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Joke.ToListAsync());
+            string userEmail = User.Identity.Name;
+            string adminEmail = "admin123@gmail.com";
+            ViewData["email"] = userEmail;
+            if (userEmail.Equals(adminEmail))
+            {
+                return View(await _context.UserFinancialActivity.ToListAsync());
+            }
+            else
+            {
+                return View("Index", await _context.UserFinancialActivity.Where(j => j.UserId.Contains(userEmail)).ToListAsync());
+            }
         }
-
-        // GET: ShowSearchForm
-        public IActionResult ShowSearchForm()
-        {
-            return View("ShowSearchForm");
-        }
-
-        // POST: ShowSearchResults
-        public async Task<IActionResult> ShowSearchResults(String SearchJokeQuestion)
-        {
-            return View("Index", await _context.Joke.Where(j => j.JokeQuestion.Contains(SearchJokeQuestion)).ToListAsync());
-        }
-
-        // GET: Jokes/Details/5
+        [Authorize]
+        // GET: UserFinancialActivities/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -46,40 +44,39 @@ namespace JokesWebApp.Controllers
                 return NotFound();
             }
 
-            var joke = await _context.Joke
+            var userFinancialActivity = await _context.UserFinancialActivity
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (joke == null)
+            if (userFinancialActivity == null)
             {
                 return NotFound();
             }
 
-            return View(joke);
+            return View(userFinancialActivity);
         }
-
         [Authorize]
-        // GET: Jokes/Create
+        // GET: UserFinancialActivities/Create
         public IActionResult Create()
         {
             return View();
         }
-
-        // POST: Jokes/Create
+        [Authorize]
+        // POST: UserFinancialActivities/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,JokeQuestion,JokeAnswer")] Joke joke)
+        public async Task<IActionResult> Create([Bind("Id,UserId,TransactionName,TransactionType,PostedDate,Term,Charge,Payment,Refund")] UserFinancialActivity userFinancialActivity)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(joke);
+                _context.Add(userFinancialActivity);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(joke);
+            return View(userFinancialActivity);
         }
-
-        // GET: Jokes/Edit/5
+        [Authorize]
+        // GET: UserFinancialActivities/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -87,22 +84,22 @@ namespace JokesWebApp.Controllers
                 return NotFound();
             }
 
-            var joke = await _context.Joke.FindAsync(id);
-            if (joke == null)
+            var userFinancialActivity = await _context.UserFinancialActivity.FindAsync(id);
+            if (userFinancialActivity == null)
             {
                 return NotFound();
             }
-            return View(joke);
+            return View(userFinancialActivity);
         }
-
-        // POST: Jokes/Edit/5
+        [Authorize]
+        // POST: UserFinancialActivities/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,JokeQuestion,JokeAnswer")] Joke joke)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,UserId,TransactionName,TransactionType,PostedDate,Term,Charge,Payment,Refund")] UserFinancialActivity userFinancialActivity)
         {
-            if (id != joke.Id)
+            if (id != userFinancialActivity.Id)
             {
                 return NotFound();
             }
@@ -111,12 +108,12 @@ namespace JokesWebApp.Controllers
             {
                 try
                 {
-                    _context.Update(joke);
+                    _context.Update(userFinancialActivity);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!JokeExists(joke.Id))
+                    if (!UserFinancialActivityExists(userFinancialActivity.Id))
                     {
                         return NotFound();
                     }
@@ -127,10 +124,10 @@ namespace JokesWebApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(joke);
+            return View(userFinancialActivity);
         }
-
-        // GET: Jokes/Delete/5
+        [Authorize]
+        // GET: UserFinancialActivities/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -138,30 +135,30 @@ namespace JokesWebApp.Controllers
                 return NotFound();
             }
 
-            var joke = await _context.Joke
+            var userFinancialActivity = await _context.UserFinancialActivity
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (joke == null)
+            if (userFinancialActivity == null)
             {
                 return NotFound();
             }
 
-            return View(joke);
+            return View(userFinancialActivity);
         }
-
-        // POST: Jokes/Delete/5
+        [Authorize]
+        // POST: UserFinancialActivities/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var joke = await _context.Joke.FindAsync(id);
-            _context.Joke.Remove(joke);
+            var userFinancialActivity = await _context.UserFinancialActivity.FindAsync(id);
+            _context.UserFinancialActivity.Remove(userFinancialActivity);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool JokeExists(int id)
+        private bool UserFinancialActivityExists(int id)
         {
-            return _context.Joke.Any(e => e.Id == id);
+            return _context.UserFinancialActivity.Any(e => e.Id == id);
         }
     }
 }

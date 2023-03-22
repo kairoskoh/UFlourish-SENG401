@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JokesWebApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230219141659_UpdatePaymentModel")]
-    partial class UpdatePaymentModel
+    [Migration("20230307232706_setup user-financial-activity")]
+    partial class setupuserfinancialactivity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -69,6 +69,42 @@ namespace JokesWebApp.Data.Migrations
                     b.ToTable("UserBasicInfoes");
                 });
 
+            modelBuilder.Entity("JokesWebApp.Models.UserFinancialActivity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("Charge")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Payment")
+                        .HasColumnType("float");
+
+                    b.Property<string>("PostedDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Refund")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Term")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TransactionName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TransactionType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserFinancialActivity");
+                });
+
             modelBuilder.Entity("JokesWebApp.Models.UserInsurance", b =>
                 {
                     b.Property<int>("Id")
@@ -100,8 +136,13 @@ namespace JokesWebApp.Data.Migrations
 
             modelBuilder.Entity("JokesWebApp.Models.UserPayment", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<string>("CardNumber")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ExpiryDate")
                         .HasColumnType("datetime2");
@@ -109,7 +150,7 @@ namespace JokesWebApp.Data.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("CardNumber");
+                    b.HasKey("Id");
 
                     b.HasIndex("UserId");
 

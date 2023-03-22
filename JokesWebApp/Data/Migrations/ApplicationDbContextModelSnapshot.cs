@@ -38,6 +38,8 @@ namespace JokesWebApp.Data.Migrations
                 });
 
             modelBuilder.Entity("JokesWebApp.Models.RefillPrescriptions", b =>
+
+            modelBuilder.Entity("JokesWebApp.Models.Request_Mental_Health", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -54,6 +56,9 @@ namespace JokesWebApp.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("RequestRefillDate")
+
+                    b.Property<DateTime>("Date")
+
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserName")
@@ -61,7 +66,11 @@ namespace JokesWebApp.Data.Migrations
 
                     b.HasKey("Id");
 
+
                     b.ToTable("RefillPrescriptions");
+
+                    b.ToTable("Request_Mental_Health");
+
                 });
 
             modelBuilder.Entity("JokesWebApp.Models.UserBasicInfo", b =>
@@ -92,6 +101,42 @@ namespace JokesWebApp.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("UserBasicInfoes");
+                });
+
+            modelBuilder.Entity("JokesWebApp.Models.UserFinancialActivity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("Charge")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Payment")
+                        .HasColumnType("float");
+
+                    b.Property<string>("PostedDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Refund")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Term")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TransactionName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TransactionType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserFinancialActivity");
                 });
 
             modelBuilder.Entity("JokesWebApp.Models.UserInsurance", b =>

@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
-    var UserId = Model.Id;
+    //var UserId = Model.Id;
 }
 
 <h1>Profile</h1>
@@ -78,11 +78,18 @@
         </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-                @if (Model==null||Model.Insurance == null||!Model.Insurance.Any())
+                @if (Model == null)
+                {
+                    <div class="incomplete-profile">
+                        <img src="@Url.Content("~/Media/icons8-information-64.png")" />
+                        <p>Please complete your user profile first</p>
+                    </div>
+                }
+                else if (Model.Insurance == null||!Model.Insurance.Any())
                 {
                   <div class="incomplete-profile">
                     <img src="@Url.Content("~/Media/empty-folder.png")" />
-                        <a asp-action="Create" asp-controller="UserInsurances"><button type="button" class="btn btn-primary">Add insurance</button></a>
+                        <a asp-action="Create" asp-controller="UserInsurances" asp-route-id="@Model.Id"><button type="button" class="btn btn-primary">Add insurance</button></a>
                     </div>
                 }
                 else
@@ -132,7 +139,14 @@
         </h2>
         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-                @if (Model == null || Model.Payments == null || !Model.Payments.Any())
+                @if (Model == null)
+                {
+                    <div class="incomplete-profile">
+                        <img src="@Url.Content("~/Media/icons8-information-64.png")" />
+                        <p>Please complete your user profile first</p>
+                    </div>
+                }
+                else if ( Model.Payments == null || !Model.Payments.Any())
                 {
                     <div class="incomplete-profile">
                         <img src="@Url.Content("~/Media/icons8-add-card-58.png")" />
