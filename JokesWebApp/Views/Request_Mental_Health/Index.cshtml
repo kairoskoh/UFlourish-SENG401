@@ -51,7 +51,7 @@
                 @if (item.Date.Day <= updated)
                 {
                     <p>
-                        Appointment scheduled for @Html.DisplayFor(modelItem => item.Date) for user name  @Html.DisplayFor(modelItem => item.UserName)
+                        Appointment scheduled for <b>@Html.DisplayFor(modelItem => item.Date)</b> for user name  @Html.DisplayFor(modelItem => item.UserName)
                     </p>
                 }   
             }

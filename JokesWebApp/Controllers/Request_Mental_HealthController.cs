@@ -49,7 +49,11 @@ namespace JokesWebApp.Controllers
         // GET: Request_Mental_Health/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            string userEmail = User.Identity.Name;
+            string userEmail = "DEFAULT";
+            if (User.Identity.Name is null)
+            {
+                userEmail = User.Identity.Name;
+            }
             //gives the current logged in user name
             //Debug.WriteLine(userEmail);
             //return it to main page
@@ -76,7 +80,11 @@ namespace JokesWebApp.Controllers
         //this "Authorize" keyword is requried so that the person has to login before entering the data on the form
         public IActionResult Create()
         {
-            string userEmail = User.Identity.Name;
+            string userEmail = "DEFAULT";
+            if(User.Identity.Name != null)
+            {
+                userEmail = User.Identity.Name;
+            }
             //gives the current logged in user name
             //Debug.WriteLine(userEmail);
             //return it to main page
