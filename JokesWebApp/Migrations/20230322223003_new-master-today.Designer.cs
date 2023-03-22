@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace JokesWebApp.Data.Migrations
+namespace JokesWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230307232706_setup user-financial-activity")]
-    partial class setupuserfinancialactivity
+    [Migration("20230322223003_new-master-today")]
+    partial class newmastertoday
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,6 +37,24 @@ namespace JokesWebApp.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Joke");
+                });
+
+            modelBuilder.Entity("JokesWebApp.Models.Request_Mental_Health", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Request_Mental_Health");
                 });
 
             modelBuilder.Entity("JokesWebApp.Models.UserBasicInfo", b =>
@@ -97,8 +115,8 @@ namespace JokesWebApp.Data.Migrations
                     b.Property<string>("TransactionType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
