@@ -1,0 +1,67 @@
+﻿@model IEnumerable<JokesWebApp.Models.RefillPrescriptions>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Your Prescription Record</h1>
+
+<p>
+    <a asp-action="Create" style="font-size: 20px; ">Create New Refill Request</a>
+</p>
+
+@*<p>Current Logged in User := @ViewData["email"] </p>*@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Medicine Name
+                @*@Html.DisplayNameFor(model => model.MedicineName)*@
+            </th>
+            <th>
+                Requested Date
+                @*@Html.DisplayNameFor(model => model.RequestRefillDate)*@
+            </th>
+            <th>
+                Requested By
+                @*@Html.DisplayNameFor(model => model.RequestRefillDate)*@
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+@foreach (var item in Model) {
+
+    
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedicineName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestRefillDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+               
+                @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> | *@
+                @*<a asp-action="Details" asp-route-id="@item.Id">Check Status</a> *@
+                @*<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                @*All the users have accesss to view details*@
+                <input type="button" value="Check Status" onclick="location.href='@Url.Action("Details", new { id = @item.Id })'" />
+                @*Only Admin has access to delete*@
+                @if (ViewData["email"].Equals("admin123@gmail.com"))
+                {
+                        <input type="button" value="Delete Record" onclick="location.href='@Url.Action("Delete", new { id = @item.Id })'" class="btn btn-danger" />
+                }
+
+            </td>
+            </tr>
+        
+}
+    </tbody>
+</table>
