@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JokesWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230322223619_add-request-mental-health")]
-    partial class addrequestmentalhealth
+    [Migration("20230322230332_add-migration-setup")]
+    partial class addmigrationsetup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
