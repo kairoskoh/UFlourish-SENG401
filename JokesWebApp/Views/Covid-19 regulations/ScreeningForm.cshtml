@@ -1,0 +1,116 @@
+@model JokesWebApp.Models.ScreeningFormModel
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>COVID-19 Form</title>
+  <style>
+        form {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #7998f7;
+        border-radius: 10px;
+        font-family: Arial, sans-serif;
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 0;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+
+    button[type="submit"] {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+  <form id="covid-form" asp-action="ScreeningForm" asp-controller="Home">
+    <h2>COVID-19 Screening Form</h2>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" asp-for="Name" required>
+  
+    <label for="date">Date of Birth:</label>
+    <input type="date" id="date" name="date" asp-for="DateOfBirth" required>
+  
+    <label for="symptoms">Symptoms:</label>
+    <textarea id="symptoms" name="symptoms" asp-for="Symptoms" required></textarea>
+  
+    <label for="travel">Travel History:</label>
+    <textarea id="travel" name="travel" asp-for="TravelHistory"></textarea>
+  
+    <label for="contact">Contact with Confirmed Case:</label>
+    <textarea id="contact" name="contact" asp-for="ContactWithConfirmedCase"></textarea>
+  
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    
+    const form = document.getElementById('covid-form');
+
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+
+  const birthDate = new Date(data.date);
+  const today = new Date();
+  const age = Math.floor((today - birthDate) / (365.25 * 24 * 60 * 60 * 1000));
+  
+  if (age > 59) {
+    alert("Please take extra caution as you are over 60 - masks are mandatory whilst in the facility");
+    }
+  if (age < 18) {
+    alert("Please bring a valid ID document + ensure you come in with a parent/guardian")
+  }
+
+
+  try {
+    const response = await fetch('/submit-covid-form', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const result = await response.json();
+    alert(result.message);
+  } catch (error) {
+    console.error(error);
+    alert('An error occurred while submitting the form.');
+  }
+});
+
+  </script>
+</body>
+</html>
