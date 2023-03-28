@@ -1,11 +1,38 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
-autonumber
+participant front_end
+participant UserBasicInfoesController
+participant ApplicationDbContext
 
-Alice -> Bob++ : Authentication Request
-Bob --> Alice -- : Authentication Response
+database DataBase
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+
+-> front_end++
+    front_end -> UserBasicInfoesController++: user click on personal info on the nav bar
+        alt user does not login
+            UserBasicInfoesController-->front_end: prompt the user to login
+        else
+            UserBasicInfoesController->ApplicationDbContext++:load the user profile information
+                ApplicationDbContext->DataBase++: request the user's profile with matching email
+                DataBase-->ApplicationDbContext--: return the user profile
+            ApplicationDbContext-->UserBasicInfoesController: return user profile
+            alt user profile is not null
+                 UserBasicInfoesController->ApplicationDbContext++:use the loaded profile as entry and load the user's payments and insurance information
+                    ApplicationDbContext->DataBase++: request the user's payments and insurance with the same user Id
+                    DataBase-->ApplicationDbContext--: return the user payments and insurance
+                 ApplicationDbContext-->UserBasicInfoesController: return user's payments and insurance
+            else
+                UserBasicInfoesController-->front_end--:return null to the front_end
+
+            end
+
+        end
+
+
+
+
+
+
+
 @enduml
