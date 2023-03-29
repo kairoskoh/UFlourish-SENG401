@@ -17,6 +17,8 @@ namespace JokesWebApp.Controllers
 
         public string adminEmail = "admin123@gmail.com";
 
+        public int status = -1;
+
         public RefillPrescriptionsController(ApplicationDbContext context)
         {
             _context = context;
@@ -210,5 +212,17 @@ namespace JokesWebApp.Controllers
         {
             return _context.RefillPrescriptions.Any(e => e.Id == id);
         }
+
+
+        public void setStatus(int i)
+        {
+            status = i;
+        }
+
+        public int getStatus()
+        {
+            return status;
+        }
+
     }
 }
