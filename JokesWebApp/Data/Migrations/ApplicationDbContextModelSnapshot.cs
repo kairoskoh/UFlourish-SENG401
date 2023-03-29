@@ -55,7 +55,7 @@ namespace JokesWebApp.Data.Migrations
                     b.Property<string>("RefillDate")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("RequestRefillDate")
+                    b.Property<DateTime>("RequestRefillDate");
 
                     b.Property<DateTime>("Date")
 
@@ -71,7 +71,7 @@ namespace JokesWebApp.Data.Migrations
 
                     b.ToTable("Request_Mental_Health");
 
-                });
+                }));
 
             modelBuilder.Entity("JokesWebApp.Models.UserBasicInfo", b =>
                 {
