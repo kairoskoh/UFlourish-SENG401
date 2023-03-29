@@ -156,7 +156,8 @@ namespace JokesWebApp.Controllers
 
             if (id != request_Mental_Health.Id)
             {
-                return NotFound();
+                //return NotFound();
+                request_Mental_Health.Id = id;
             }
 
             if (ModelState.IsValid)

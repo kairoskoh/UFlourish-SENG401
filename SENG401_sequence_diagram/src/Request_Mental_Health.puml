@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+User -> Front_End_Website++: User access the website
+Front_End_Website -> Request_Mental_HealthController++ : User requests \n to view appointment
+Request_Mental_HealthController -> Database--: Request Data from Database
+
+
+Database -> Request_Mental_HealthController++:Return Data from database
+Front_End_Website <- Request_Mental_HealthController--:  Present data on \n Front_End_Website
+Front_End_Website -> User--: End of interaction
+
+@enduml
