@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace JokesWebApp.Migrations
 {
-    public partial class test : Migration
+    public partial class finalmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

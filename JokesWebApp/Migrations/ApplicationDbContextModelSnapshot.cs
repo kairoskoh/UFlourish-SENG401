@@ -73,7 +73,6 @@ namespace JokesWebApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-                    b.Property<DateTime>("RequestRefillDate");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -85,8 +84,6 @@ namespace JokesWebApp.Migrations
 
                     b.ToTable("Request_Mental_Health");
                 });
-
-                }));
 
             modelBuilder.Entity("JokesWebApp.Models.UserBasicInfo", b =>
                 {
