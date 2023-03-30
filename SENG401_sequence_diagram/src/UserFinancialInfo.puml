@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+User -> UserFinancialActivitiesController : View Request
+UserFinancialActivitiesController -> UserFinancialActivityView : View(where Id = user)
+UserFinancialActivityView -> Database : SQL Query
+UserFinancialActivityView <-- Database : Queried Results
+UserFinancialActivitiesController <-- UserFinancialActivityView : Rendered View
+User <-- UserFinancialActivitiesController : Display Records
+
+' User -> UserFinancialActivitiesController: Another authentication Request
+' User <-- UserFinancialActivitiesController: another authentication Response
+@enduml

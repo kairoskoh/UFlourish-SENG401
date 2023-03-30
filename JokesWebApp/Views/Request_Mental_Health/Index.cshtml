@@ -1,4 +1,5 @@
-﻿@model IEnumerable<JokesWebApp.Models.Request_Mental_Health>
+﻿@using System.Diagnostics;
+@model IEnumerable<JokesWebApp.Models.Request_Mental_Health>
 
 @{
     ViewData["Title"] = "Index";
@@ -54,6 +55,18 @@
                         Appointment scheduled for <b>@Html.DisplayFor(modelItem => item.Date)</b> for user name  @Html.DisplayFor(modelItem => item.UserName)
                     </p>
                 }   
+            }
+            @if(item.Date.Month.Equals(month+1))
+            {
+                //date is in next month
+                Debug.WriteLine(item.Date.Month);
+                var updated = 5;
+                @if (item.Date.Day <= updated)
+                {
+                    <p>
+                        Appointment scheduled for <b>@Html.DisplayFor(modelItem => item.Date)</b> for user name  @Html.DisplayFor(modelItem => item.UserName)
+                    </p>
+                }
             }
         }
  }
