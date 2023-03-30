@@ -1,0 +1,588 @@
+{
+  "id": "aec33242-2637-4c9a-8c6b-afc0905f14f7",
+  "version": "2.0",
+  "name": "SENG Project",
+  "url": "https://localhost:44307",
+  "tests": [{
+    "id": "0d67a435-5157-42ba-a397-b513e2e81735",
+    "name": "RequestMentalHealth_Index",
+    "commands": [{
+      "id": "d172ab97-435a-4f0f-b531-c2f02d698e0f",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "75a12733-cce7-442c-8c4a-5d28e2440275",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1708x896",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dc8af577-9037-4f92-85a5-81b3ae70ccd0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5b8accb5-784b-4f40-b6a9-756c77b07c9a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Request Mental Health",
+      "targets": [
+        ["linkText=Request Mental Health", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Request Mental Health')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Request_Mental_Health')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Request Mental Health')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "57017d27-d6a3-471f-9213-b0281523fc41",
+      "comment": "",
+      "command": "type",
+      "target": "id=Input_Email",
+      "targets": [
+        ["id=Input_Email", "id"],
+        ["name=Input.Email", "name"],
+        ["css=#Input_Email", "css:finder"],
+        ["xpath=//input[@id='Input_Email']", "xpath:attributes"],
+        ["xpath=//form[@id='account']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "senghealth@gmail.com"
+    }, {
+      "id": "a504517a-8b5e-44e7-a3f6-a2d7010d2ab4",
+      "comment": "",
+      "command": "type",
+      "target": "id=Input_Password",
+      "targets": [
+        ["id=Input_Password", "id"],
+        ["name=Input.Password", "name"],
+        ["css=#Input_Password", "css:finder"],
+        ["xpath=//input[@id='Input_Password']", "xpath:attributes"],
+        ["xpath=//form[@id='account']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "K?hBfF8D+_@Jn_i"
+    }, {
+      "id": "8996a37e-f16d-4b41-8479-296ddff9f9e2",
+      "comment": "",
+      "command": "click",
+      "target": "id=Input_Email",
+      "targets": [
+        ["id=Input_Email", "id"],
+        ["name=Input.Email", "name"],
+        ["css=#Input_Email", "css:finder"],
+        ["xpath=//input[@id='Input_Email']", "xpath:attributes"],
+        ["xpath=//form[@id='account']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "635499c6-8598-4d86-8880-d4b51de1d9c8",
+      "comment": "",
+      "command": "click",
+      "target": "id=login-submit",
+      "targets": [
+        ["id=login-submit", "id"],
+        ["css=#login-submit", "css:finder"],
+        ["xpath=//button[@id='login-submit']", "xpath:attributes"],
+        ["xpath=//form[@id='account']/div[5]/button", "xpath:idRelative"],
+        ["xpath=//div[5]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1f8b4072-e45d-45d6-9721-d46212ad4a0d",
+      "comment": "",
+      "command": "click",
+      "target": "id=myId",
+      "targets": [
+        ["id=myId", "id"],
+        ["css=#myId", "css:finder"],
+        ["xpath=//p[@id='myId']", "xpath:attributes"],
+        ["xpath=//p[4]", "xpath:position"],
+        ["xpath=//p[contains(.,'Current Date and time: 28-3-2023 16:55:00 PM')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "424b5fa5-4fea-486a-b3ea-f90a128b7c96",
+    "name": "RequestMentalHealth_Delete",
+    "commands": [{
+      "id": "6e0c78d4-2e6c-4515-82e4-d2c725bd3dd3",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7d1ba860-77ba-4b34-89b1-3511822c2679",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1377x914",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "02816c44-fad6-459e-acd1-0c854bee0f07",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a5d0651a-f922-4b32-b4ce-d0e1be4bea07",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Request Mental Health",
+      "targets": [
+        ["linkText=Request Mental Health", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Request Mental Health')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Request_Mental_Health')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Request Mental Health')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dde5b910-7e82-40c7-8d5a-dbb0a376e294",
+      "comment": "",
+      "command": "type",
+      "target": "id=Input_Email",
+      "targets": [
+        ["id=Input_Email", "id"],
+        ["name=Input.Email", "name"],
+        ["css=#Input_Email", "css:finder"],
+        ["xpath=//input[@id='Input_Email']", "xpath:attributes"],
+        ["xpath=//form[@id='account']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "senghealth@gmail.com"
+    }, {
+      "id": "7963213e-cb86-41e2-b0df-a5098ff275b7",
+      "comment": "",
+      "command": "type",
+      "target": "id=Input_Password",
+      "targets": [
+        ["id=Input_Password", "id"],
+        ["name=Input.Password", "name"],
+        ["css=#Input_Password", "css:finder"],
+        ["xpath=//input[@id='Input_Password']", "xpath:attributes"],
+        ["xpath=//form[@id='account']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "K?hBfF8D+_@Jn_i"
+    }, {
+      "id": "ca991387-41d5-4045-92da-28e545aae5ae",
+      "comment": "",
+      "command": "click",
+      "target": "id=Input_Email",
+      "targets": [
+        ["id=Input_Email", "id"],
+        ["name=Input.Email", "name"],
+        ["css=#Input_Email", "css:finder"],
+        ["xpath=//input[@id='Input_Email']", "xpath:attributes"],
+        ["xpath=//form[@id='account']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "12d17a23-a946-4504-adf5-b748f51d09ba",
+      "comment": "",
+      "command": "click",
+      "target": "id=login-submit",
+      "targets": [
+        ["id=login-submit", "id"],
+        ["css=#login-submit", "css:finder"],
+        ["xpath=//button[@id='login-submit']", "xpath:attributes"],
+        ["xpath=//form[@id='account']/div[5]/button", "xpath:idRelative"],
+        ["xpath=//div[5]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d6fa107-11e7-4bce-96de-470310ad01a6",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(2) a:nth-child(3)",
+      "targets": [
+        ["css=tr:nth-child(2) a:nth-child(3)", "css:finder"],
+        ["xpath=(//a[contains(text(),'Delete')])[2]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Request_Mental_Health/Delete/23')]", "xpath:href"],
+        ["xpath=//tr[2]/td[4]/a[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "74983e86-3f5f-4708-bd30-20d59397df4a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-danger",
+      "targets": [
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//input[@value='Delete']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "0c831e2c-d2d3-4a44-bdc8-c552f0ef3f26",
+    "name": "RequestMentalHealth_Create",
+    "commands": [{
+      "id": "68058a61-955a-4e16-89ca-4d7b5944d438",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2adbca61-302e-4fe7-a3b8-14a2c0c42b40",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1708x896",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "31fa277d-f448-4efe-8a91-acade1422eb9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ffc2265c-048d-4e49-8efd-495e5984b075",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Request Mental Health",
+      "targets": [
+        ["linkText=Request Mental Health", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Request Mental Health')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Request_Mental_Health')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Request Mental Health')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6488d948-41f8-45c9-be72-211fc19c8382",
+      "comment": "",
+      "command": "type",
+      "target": "id=Input_Email",
+      "targets": [
+        ["id=Input_Email", "id"],
+        ["name=Input.Email", "name"],
+        ["css=#Input_Email", "css:finder"],
+        ["xpath=//input[@id='Input_Email']", "xpath:attributes"],
+        ["xpath=//form[@id='account']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "senghealth@gmail.com"
+    }, {
+      "id": "6a5059aa-a35b-42b6-a810-07dc7ea6d4b0",
+      "comment": "",
+      "command": "type",
+      "target": "id=Input_Password",
+      "targets": [
+        ["id=Input_Password", "id"],
+        ["name=Input.Password", "name"],
+        ["css=#Input_Password", "css:finder"],
+        ["xpath=//input[@id='Input_Password']", "xpath:attributes"],
+        ["xpath=//form[@id='account']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "K?hBfF8D+_@Jn_i"
+    }, {
+      "id": "395eff9f-bd3e-4514-9864-0398c122b7f0",
+      "comment": "",
+      "command": "click",
+      "target": "id=Input_Email",
+      "targets": [
+        ["id=Input_Email", "id"],
+        ["name=Input.Email", "name"],
+        ["css=#Input_Email", "css:finder"],
+        ["xpath=//input[@id='Input_Email']", "xpath:attributes"],
+        ["xpath=//form[@id='account']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "40ce7990-f08a-49e0-82eb-a6e1df97bf60",
+      "comment": "",
+      "command": "click",
+      "target": "id=login-submit",
+      "targets": [
+        ["id=login-submit", "id"],
+        ["css=#login-submit", "css:finder"],
+        ["xpath=//button[@id='login-submit']", "xpath:attributes"],
+        ["xpath=//form[@id='account']/div[5]/button", "xpath:idRelative"],
+        ["xpath=//div[5]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2c0778a4-1901-4af2-9cda-539f90b22f4e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Create a new appointment",
+      "targets": [
+        ["linkText=Create a new appointment", "linkText"],
+        ["css=p > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Create a new appointment')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Request_Mental_Health/Create')]", "xpath:href"],
+        ["xpath=//p[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Create a new appointment')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "36d14ec7-229c-4b0d-ab00-8f4d5d390a34",
+      "comment": "",
+      "command": "click",
+      "target": "id=Date",
+      "targets": [
+        ["id=Date", "id"],
+        ["name=Date", "name"],
+        ["css=#Date", "css:finder"],
+        ["xpath=//input[@id='Date']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0a3466d9-200f-4e04-b322-da8ed8a6a884",
+      "comment": "",
+      "command": "click",
+      "target": "id=Date",
+      "targets": [
+        ["id=Date", "id"],
+        ["name=Date", "name"],
+        ["css=#Date", "css:finder"],
+        ["xpath=//input[@id='Date']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "00c3ff66-b5c7-4f50-9a3c-be84c0fe84fd",
+      "comment": "",
+      "command": "type",
+      "target": "id=Date",
+      "targets": [
+        ["id=Date", "id"],
+        ["name=Date", "name"],
+        ["css=#Date", "css:finder"],
+        ["xpath=//input[@id='Date']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "2023-04-010T21:57"
+    }, {
+      "id": "4907b1f9-c60d-4d39-968d-792a920092c7",
+      "comment": "",
+      "command": "click",
+      "target": "css=body",
+      "targets": [
+        ["css=body", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "074173d8-7f43-40c1-9f6f-d6dab626fd86",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//input[@value='Create']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "4d8e25de-dc2f-44e2-b679-3d3fb9e21dcb",
+    "name": "RequestMentalHealth_Edit",
+    "commands": [{
+      "id": "0dfb701e-0deb-4b4d-8df6-1bd4ee873c67",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b6251b10-5719-49e9-bdaf-1eca1544810e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1720x926",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b1574d1c-a418-4205-a694-95722187796e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4b28fc78-09c4-49c5-a526-4dec56f20ba6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Request Mental Health",
+      "targets": [
+        ["linkText=Request Mental Health", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Request Mental Health')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Request_Mental_Health')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Request Mental Health')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4114c29b-3859-46de-a7b8-c08576547fea",
+      "comment": "",
+      "command": "type",
+      "target": "id=Input_Email",
+      "targets": [
+        ["id=Input_Email", "id"],
+        ["name=Input.Email", "name"],
+        ["css=#Input_Email", "css:finder"],
+        ["xpath=//input[@id='Input_Email']", "xpath:attributes"],
+        ["xpath=//form[@id='account']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "senghealth@gmail.com"
+    }, {
+      "id": "c961ea4a-a73a-4109-832f-b806c6562fd9",
+      "comment": "",
+      "command": "type",
+      "target": "id=Input_Password",
+      "targets": [
+        ["id=Input_Password", "id"],
+        ["name=Input.Password", "name"],
+        ["css=#Input_Password", "css:finder"],
+        ["xpath=//input[@id='Input_Password']", "xpath:attributes"],
+        ["xpath=//form[@id='account']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "K?hBfF8D+_@Jn_i"
+    }, {
+      "id": "a9572015-db96-45cc-9e2b-9afae9c38efa",
+      "comment": "",
+      "command": "click",
+      "target": "id=Input_Email",
+      "targets": [
+        ["id=Input_Email", "id"],
+        ["name=Input.Email", "name"],
+        ["css=#Input_Email", "css:finder"],
+        ["xpath=//input[@id='Input_Email']", "xpath:attributes"],
+        ["xpath=//form[@id='account']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dd784cf7-053d-4252-847c-a023e3bc1694",
+      "comment": "",
+      "command": "click",
+      "target": "id=login-submit",
+      "targets": [
+        ["id=login-submit", "id"],
+        ["css=#login-submit", "css:finder"],
+        ["xpath=//button[@id='login-submit']", "xpath:attributes"],
+        ["xpath=//form[@id='account']/div[5]/button", "xpath:idRelative"],
+        ["xpath=//div[5]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cf401f33-b568-4f2c-b773-f362cbfacea9",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Edit",
+      "targets": [
+        ["linkText=Edit", "linkText"],
+        ["css=tr:nth-child(1) a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Edit')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Request_Mental_Health/Edit/34')]", "xpath:href"],
+        ["xpath=//td[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Edit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6c83e56d-37ed-4039-9864-bfdae637086b",
+      "comment": "",
+      "command": "click",
+      "target": "id=Date",
+      "targets": [
+        ["id=Date", "id"],
+        ["name=Date", "name"],
+        ["css=#Date", "css:finder"],
+        ["xpath=//input[@id='Date']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aa3281e1-5a60-4207-be66-9b93ca6662fd",
+      "comment": "",
+      "command": "type",
+      "target": "id=Date",
+      "targets": [
+        ["id=Date", "id"],
+        ["name=Date", "name"],
+        ["css=#Date", "css:finder"],
+        ["xpath=//input[@id='Date']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "2023-05-18T23:57"
+    }, {
+      "id": "cbe81a69-d25a-4226-8584-46934bf70766",
+      "comment": "",
+      "command": "click",
+      "target": "css=html",
+      "targets": [
+        ["css=html", "css:finder"],
+        ["xpath=//html", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6edf0039-811e-4e36-baaa-b225f0b5f94e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//input[@value='Save']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "06d5f62c-ed66-428d-af09-00b3ac9f3898",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://localhost:44307/"],
+  "plugins": []
+}
