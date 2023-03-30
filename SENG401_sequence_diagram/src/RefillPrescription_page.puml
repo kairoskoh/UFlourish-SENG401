@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+participant User
+participant front_end_page
+participant RefillPrescriptionController
+database DataBase
+
+User -> front_end_page++: User clicks Prescription on nav bar
+    front_end_page -> RefillPrescriptionController++: User requests "Prescription Refill"
+        RefillPrescriptionController -> DataBase++: create new record
+        DataBase -> RefillPrescriptionController--: Request complete
+    RefillPrescriptionController -> front_end_page--: User Request complete
+    front_end_page -> RefillPrescriptionController++: User checks request status
+        RefillPrescriptionController -> DataBase++: view existing record
+        DataBase -> RefillPrescriptionController--: Request complete
+    RefillPrescriptionController -> front_end_page--: User Request complete
+front_end_page -> User--: Displays index page
+
+
+@enduml

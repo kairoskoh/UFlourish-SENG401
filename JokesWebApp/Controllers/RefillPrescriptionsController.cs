@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using JokesWebApp.Data;
 using JokesWebApp.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace JokesWebApp.Controllers
 {
@@ -15,7 +16,10 @@ namespace JokesWebApp.Controllers
     {
         private readonly ApplicationDbContext _context;
 
+
         public string adminEmail = "admin123@gmail.com";
+
+        //public int status = -1;
 
         public RefillPrescriptionsController(ApplicationDbContext context)
         {
@@ -27,7 +31,7 @@ namespace JokesWebApp.Controllers
         public async Task<IActionResult> Index()
         {
             string userEmail = User.Identity.Name;
-            
+
 
             //var user = _context.UserBasicInfoes.Where(x => x.Email == userEmail).FirstOrDefault();
 
@@ -210,5 +214,81 @@ namespace JokesWebApp.Controllers
         {
             return _context.RefillPrescriptions.Any(e => e.Id == id);
         }
+
+        // GET: RefillPrescriptions/UpdateStatus/5
+        [Authorize]
+        public async Task<IActionResult> UpdateStatus(int? id)
+        {
+            string userEmail = User.Identity.Name;
+            ViewData["email"] = userEmail;
+
+            if (!userEmail.Equals(adminEmail))
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var refillPrescriptions = await _context.RefillPrescriptions.FindAsync(id);
+            if (refillPrescriptions == null)
+            {
+                return NotFound();
+            }
+            return View(refillPrescriptions);
+        }
+
+        // POST: RefillPrescriptions/UpdateStatus/5
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdateStatus(int id, [Bind("Id,Status")] RefillPrescriptions refillPrescriptions)
+        {
+            string userEmail = User.Identity.Name;
+            ViewData["email"] = userEmail;
+
+            if (!userEmail.Equals(adminEmail))
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            if (id != refillPrescriptions.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var originalRefillPrescriptions = await _context.RefillPrescriptions.FindAsync(id);
+                    originalRefillPrescriptions.Status = refillPrescriptions.Status;
+                    _context.Update(originalRefillPrescriptions);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!RefillPrescriptionsExists(refillPrescriptions.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(refillPrescriptions);
+        }
+
+
+
+
     }
+
+
 }
+

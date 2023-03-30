@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace JokesWebApp.Models
@@ -16,7 +17,7 @@ namespace JokesWebApp.Models
         public string RefillDate { get; set;}
         public DateTime PrescriptionReadyToPickup { get; set; }
 
-
+        public string Status { get; set; }
 
         public RefillPrescriptions()
         {
