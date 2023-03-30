@@ -9,7 +9,16 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JokesWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
+<<<<<<< HEAD
+<<<<<<<< HEAD:JokesWebApp/Migrations/ApplicationDbContextModelSnapshot.cs
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+========
+    [Migration("20230330012111_final-migration")]
+    partial class finalmigration
+>>>>>>>> master:JokesWebApp/Migrations/20230330012111_final-migration.Designer.cs
+=======
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+>>>>>>> master
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -53,12 +62,27 @@ namespace JokesWebApp.Migrations
                     b.Property<string>("RefillDate")
                         .HasColumnType("nvarchar(max)");
 
+<<<<<<< HEAD
+                    b.Property<DateTime>("RequestRefillDate")
+                        .HasColumnType("datetime2");
+
+<<<<<<<< HEAD:JokesWebApp/Migrations/ApplicationDbContextModelSnapshot.cs
+========
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+>>>>>>>> master:JokesWebApp/Migrations/20230330012111_final-migration.Designer.cs
+=======
+<<<<<<<< HEAD:JokesWebApp/Data/Migrations/ApplicationDbContextModelSnapshot.cs
+                    b.Property<DateTime>("RequestRefillDate");
+========
                     b.Property<DateTime>("RequestRefillDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
+>>>>>>> master
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
@@ -73,6 +97,10 @@ namespace JokesWebApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+<<<<<<< HEAD
+=======
+>>>>>>>> master:JokesWebApp/Migrations/ApplicationDbContextModelSnapshot.cs
+>>>>>>> master
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -83,7 +111,16 @@ namespace JokesWebApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Request_Mental_Health");
+<<<<<<< HEAD
                 });
+=======
+<<<<<<<< HEAD:JokesWebApp/Data/Migrations/ApplicationDbContextModelSnapshot.cs
+
+                }));
+========
+                });
+>>>>>>>> master:JokesWebApp/Migrations/ApplicationDbContextModelSnapshot.cs
+>>>>>>> master
 
             modelBuilder.Entity("JokesWebApp.Models.UserBasicInfo", b =>
                 {

@@ -31,6 +31,14 @@ namespace JokesWebApp.Controllers
         {
             return View();
         }
+        public IActionResult ScreeningForm()
+        {
+            string userEmail;
+            userEmail = User.Identity.Name;
+            //if()
+            ViewData["email"] = userEmail;
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

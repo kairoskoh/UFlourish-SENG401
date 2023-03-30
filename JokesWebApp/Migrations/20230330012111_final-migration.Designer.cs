@@ -4,16 +4,19 @@ using JokesWebApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JokesWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
+<<<<<<<< HEAD:JokesWebApp/Migrations/ApplicationDbContextModelSnapshot.cs
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+========
     [Migration("20230330012111_final-migration")]
     partial class finalmigration
+>>>>>>>> master:JokesWebApp/Migrations/20230330012111_final-migration.Designer.cs
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,9 +61,12 @@ namespace JokesWebApp.Migrations
                     b.Property<DateTime>("RequestRefillDate")
                         .HasColumnType("datetime2");
 
+<<<<<<<< HEAD:JokesWebApp/Migrations/ApplicationDbContextModelSnapshot.cs
+========
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
+>>>>>>>> master:JokesWebApp/Migrations/20230330012111_final-migration.Designer.cs
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
