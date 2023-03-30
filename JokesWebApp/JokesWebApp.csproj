@@ -7,33 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Data\Migrations\20230308081117_RefillDate.cs" />
-    <Compile Remove="Data\Migrations\20230308081117_RefillDate.Designer.cs" />
-    <Compile Remove="Data\Migrations\20230308081420_RefillPrescriptionV2.cs" />
-    <Compile Remove="Data\Migrations\20230308081420_RefillPrescriptionV2.Designer.cs" />
-    <Compile Remove="Data\Migrations\20230308083738_chagedRefillDateFormat.cs" />
-    <Compile Remove="Data\Migrations\20230308083738_chagedRefillDateFormat.Designer.cs" />
-    <Compile Remove="Data\Migrations\20230308084119_addRequestDate.cs" />
-    <Compile Remove="Data\Migrations\20230308084119_addRequestDate.Designer.cs" />
-    <Compile Remove="Data\Migrations\20230308084559_addRequestDate.cs" />
-    <Compile Remove="Data\Migrations\20230308084559_addRequestDate.Designer.cs" />
-    <Compile Remove="Data\Migrations\20230308090506_pickupdateV1.cs" />
-    <Compile Remove="Data\Migrations\20230308090506_pickupdateV1.Designer.cs" />
-    <Compile Remove="Data\Migrations\20230308091704_dateSetup.cs" />
-    <Compile Remove="Data\Migrations\20230308091704_dateSetup.Designer.cs" />
-    <Compile Remove="Data\Migrations\20230318231746_UpdateRefillPrescription1.cs" />
-    <Compile Remove="Data\Migrations\20230318231746_UpdateRefillPrescription1.Designer.cs" />
-    <Compile Remove="Data\Migrations\20230318232000_UpdateRefillPrescription1.cs" />
-    <Compile Remove="Data\Migrations\20230318232000_UpdateRefillPrescription1.Designer.cs" />
-    <Compile Remove="Data\Migrations\20230319035720_UpdateRefillPrescription2.cs" />
-    <Compile Remove="Data\Migrations\20230319035720_UpdateRefillPrescription2.Designer.cs" />
-    <Compile Remove="Data\Migrations\20230319035911_UpdateRefillPrescription2.cs" />
-    <Compile Remove="Data\Migrations\20230319035911_UpdateRefillPrescription2.Designer.cs" />
-    <Compile Remove="Data\Migrations\20230319041114_UpdateRefillPrescription1.cs" />
-    <Compile Remove="Data\Migrations\20230319041114_UpdateRefillPrescription1.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Remove="C:\Users\Charles Huang\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.css" />
     <Content Remove="C:\Users\Charles Huang\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.css.map" />
     <Content Remove="C:\Users\Charles Huang\.nuget\packages\bootstrap\5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.min.css" />
@@ -116,10 +89,6 @@
     <PackageReference Include="NUnit" Version="3.13.3" />
     <PackageReference Include="NUnit.ConsoleRunner" Version="3.16.3" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.4.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\Migrations\" />
   </ItemGroup>
 
 </Project>

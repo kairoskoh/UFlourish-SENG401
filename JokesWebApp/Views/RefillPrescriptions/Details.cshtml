@@ -1,6 +1,5 @@
 ﻿@model JokesWebApp.Models.RefillPrescriptions
 
-
 @{
     ViewData["Title"] = "Details";
 }
@@ -44,46 +43,40 @@
         <dt class="col-sm-2">
             @if (ViewData["email"].Equals("admin123@gmail.com"))
             {
-                <input type="button" value="Approve Request" onclick="showAlertForApprove()" class="btn btn-success" />
-
+                <form asp-action="UpdateStatus">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div>
+                        <label for="Status">Status:</label>
+                        <select id="Status" name="Status">
+                            <option value="Approved">Approved</option>
+                            <option value="Declined">Declined</option>
+                        </select>
+                    </div>
+                     <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-primary" />
+                    </div>
+                    
+                </form>
             }
         </dt>
 
-        <script>
-            function showAlertForApprove() {
-                alert("Your request has been approved. An email has been sent containing your prescription details.");
-                status = 1;
-            }
-        </script>
-
         <dd class="col-sm-10">
-            @if (ViewData["email"].Equals("admin123@gmail.com"))
-            {
-                <input type="button" value="Decline Request" onclick="showAlertForDecline()" class="btn btn-danger" />
-
-            }
+            
         </dd>
 
-        <script>
-            function showAlertForDecline() {
-                alert("Your request has been declined. An email has been sent with more details.");
-                @{
-                    
-                        
-                }
-            }
-        </script>
+
 
         <dt class="col-sm-2">
             Status
         </dt>
-        @if(status == -1)
+        @if(Model.Status == null)
         {
             <dd class="col-sm-10">
                 Pending ....
             </dd>
         }
-        @if(status == 0)
+        @if (Model.Status == "Declined")
         {
             <dd class="col-sm-10">
                 <font size="13" color="red"> Declined </font>
@@ -91,7 +84,7 @@
                 <text> Please Email help@ucalgary.ca for more information</text>
             </dd>
         }
-        @if(status == 1)
+        @if (Model.Status == "Approved")
         {
             <dd class="col-sm-10">
                 <font size="13" color="green"> Approved </font>
