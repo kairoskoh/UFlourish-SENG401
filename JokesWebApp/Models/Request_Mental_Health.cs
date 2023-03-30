@@ -1,5 +1,9 @@
 ﻿using Microsoft.VisualBasic;
 using System;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
+
 
 namespace JokesWebApp.Models
 {
