@@ -1,0 +1,377 @@
+{
+  "id": "938ffaf3-f67f-4c11-96fd-969239fc9166",
+  "version": "2.0",
+  "name": "prescriptionTest",
+  "url": "https://localhost:5001",
+  "tests": [{
+    "id": "9a3e74a4-7a13-4537-99da-72e7d6777079",
+    "name": "medicineCreate",
+    "commands": [{
+      "id": "598ed45b-b4ce-4620-a53f-0289d04bbf81",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f1d0ab66-06f7-4d94-971d-dee2f2935244",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1532x820",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "600cce0f-aa7a-46c3-b874-908bad47b44b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prescriptions",
+      "targets": [
+        ["linkText=Prescriptions", "linkText"],
+        ["css=.nav-item:nth-child(6) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Prescriptions')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/RefillPrescriptions')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Prescriptions')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5a23bc86-a026-48da-acec-23edbb6b5c1b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Create New Refill Request",
+      "targets": [
+        ["linkText=Create New Refill Request", "linkText"],
+        ["css=p > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Create New Refill Request')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/RefillPrescriptions/Create')]", "xpath:href"],
+        ["xpath=//p/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Create New Refill Request')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cf819843-526b-40a0-a417-5ef4511000e1",
+      "comment": "",
+      "command": "click",
+      "target": "id=MedicineName",
+      "targets": [
+        ["id=MedicineName", "id"],
+        ["name=MedicineName", "name"],
+        ["css=#MedicineName", "css:finder"],
+        ["xpath=//input[@id='MedicineName']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "12212b8d-1fa8-4443-91b3-bc232ab9f9ff",
+      "comment": "",
+      "command": "type",
+      "target": "id=MedicineName",
+      "targets": [
+        ["id=MedicineName", "id"],
+        ["name=MedicineName", "name"],
+        ["css=#MedicineName", "css:finder"],
+        ["xpath=//input[@id='MedicineName']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Paracetamol"
+    }, {
+      "id": "a981b93e-7539-4f01-9880-90fb46410353",
+      "comment": "",
+      "command": "click",
+      "target": "id=RequestRefillDate",
+      "targets": [
+        ["id=RequestRefillDate", "id"],
+        ["name=RequestRefillDate", "name"],
+        ["css=#RequestRefillDate", "css:finder"],
+        ["xpath=//input[@id='RequestRefillDate']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "137043f7-7fed-46fe-badb-3cf01ba36216",
+      "comment": "",
+      "command": "type",
+      "target": "id=RequestRefillDate",
+      "targets": [
+        ["id=RequestRefillDate", "id"],
+        ["name=RequestRefillDate", "name"],
+        ["css=#RequestRefillDate", "css:finder"],
+        ["xpath=//input[@id='RequestRefillDate']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "2023-03-31"
+    }, {
+      "id": "4a84361b-8173-46ec-a5d0-668137daefa1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//input[@value='Request']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e920ae64-db9a-478c-a301-17f500ec63d7",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@value='Check Status']", "xpath:attributes"],
+        ["xpath=//td[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b944f4f4-a102-4fd1-b651-7294b1c44132",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Back to List",
+      "targets": [
+        ["linkText=Back to List", "linkText"],
+        ["css=div:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Back to List')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/RefillPrescriptions')])[2]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Back to List')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f50efa2f-4c5b-49f8-b1ae-6cf2b291894a",
+      "comment": "",
+      "command": "click",
+      "target": "css=html",
+      "targets": [
+        ["css=html", "css:finder"],
+        ["xpath=//html", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "04e37cde-b94d-4bcc-a6f6-66b0ebbf9977",
+    "name": "adminTest1",
+    "commands": [{
+      "id": "3516671d-f1ab-411a-94ae-d0ecaae14047",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4c013739-b5b3-4445-9c86-759f9065293f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1532x820",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ed4454b1-786d-42f8-b30b-7acce8cbbd4c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prescriptions",
+      "targets": [
+        ["linkText=Prescriptions", "linkText"],
+        ["css=.nav-item:nth-child(6) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Prescriptions')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/RefillPrescriptions')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Prescriptions')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "58461222-1523-47b2-b8b1-217038e8f97b",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@value='Check Status']", "xpath:attributes"],
+        ["xpath=//td[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0743e09e-8716-490a-af1c-bf825acdc573",
+      "comment": "",
+      "command": "click",
+      "target": "id=Status",
+      "targets": [
+        ["id=Status", "id"],
+        ["name=Status", "name"],
+        ["css=#Status", "css:finder"],
+        ["xpath=//select[@id='Status']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c8814aa6-77ba-41c7-ac3d-06efd2277e5a",
+      "comment": "",
+      "command": "click",
+      "target": "id=Status",
+      "targets": [
+        ["id=Status", "id"],
+        ["name=Status", "name"],
+        ["css=#Status", "css:finder"],
+        ["xpath=//select[@id='Status']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d4b20f8b-4652-4077-8f24-51b699597c75",
+      "comment": "",
+      "command": "select",
+      "target": "id=Status",
+      "targets": [],
+      "value": "label=Declined"
+    }, {
+      "id": "ade2f046-0b30-4b97-9e61-a060767c2e25",
+      "comment": "",
+      "command": "click",
+      "target": "id=Status",
+      "targets": [
+        ["id=Status", "id"],
+        ["name=Status", "name"],
+        ["css=#Status", "css:finder"],
+        ["xpath=//select[@id='Status']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4f5b57c3-a382-41be-961c-481137c2cb88",
+      "comment": "",
+      "command": "select",
+      "target": "id=Status",
+      "targets": [],
+      "value": "label=Approved"
+    }, {
+      "id": "f355c74f-7c73-4ecc-892f-3c9b137300ac",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//input[@value='Update']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0b1d453c-baca-4abc-906f-505ff55f6833",
+      "comment": "",
+      "command": "click",
+      "target": "css=html",
+      "targets": [
+        ["css=html", "css:finder"],
+        ["xpath=//html", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b909793b-c077-45c1-be94-da16ae832a19",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@value='Check Status']", "xpath:attributes"],
+        ["xpath=//td[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "57a616d4-8d88-455e-b25e-19b9ec50aa6f",
+      "comment": "",
+      "command": "click",
+      "target": "id=Status",
+      "targets": [
+        ["id=Status", "id"],
+        ["name=Status", "name"],
+        ["css=#Status", "css:finder"],
+        ["xpath=//select[@id='Status']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "04257c30-3e99-44da-a9ef-ff7fb16c339d",
+      "comment": "",
+      "command": "select",
+      "target": "id=Status",
+      "targets": [],
+      "value": "label=Declined"
+    }, {
+      "id": "fcf7b7d2-1b2f-4925-af71-6d77738ed872",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//input[@value='Update']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bfa54cf5-c26e-4a04-9b2c-8ce4b701d8ab",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@value='Check Status']", "xpath:attributes"],
+        ["xpath=//td[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "21114117-0c9b-4201-8ec4-f077938ddf23",
+      "comment": "",
+      "command": "click",
+      "target": "css=.pb-3",
+      "targets": [
+        ["css=.pb-3", "css:finder"],
+        ["xpath=//main", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6c75f8ce-1c0b-4981-9c4b-0100eca737c2",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Back to List",
+      "targets": [
+        ["linkText=Back to List", "linkText"],
+        ["css=div:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Back to List')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/RefillPrescriptions')])[2]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Back to List')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "aeead33e-5ab5-41fb-abcd-330f31ea0b9d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-danger",
+      "targets": [
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//input[@value='Delete Record']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "945d6cc4-09a1-435d-83bb-7cb7a789dc19",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-danger",
+      "targets": [
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//input[@value='Delete']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "1dd416f6-f3f8-4201-816c-d3f7b174f6aa",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://localhost:5001/"],
+  "plugins": []
+}
