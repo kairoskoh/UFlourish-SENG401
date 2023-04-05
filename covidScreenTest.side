@@ -1,0 +1,171 @@
+{
+  "id": "0b212194-ea45-4bfd-81f3-644c4058a9ef",
+  "version": "2.0",
+  "name": "covidScreenTest",
+  "url": "https://localhost:5001",
+  "tests": [{
+    "id": "b7a9d72d-db2d-422a-a93e-6bb850f8e12c",
+    "name": "covidScreen",
+    "commands": [{
+      "id": "114b1032-4211-4238-b894-0c5de50fc179",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a21d511c-5ff9-4be2-82c5-cda60562a48b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Covid Screening",
+      "targets": [
+        ["linkText=Covid Screening", "linkText"],
+        ["css=.nav-item:nth-child(7) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Covid Screening')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Home/ScreeningForm')]", "xpath:href"],
+        ["xpath=//li[7]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Covid Screening')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e23324eb-334a-4b23-8dd6-2cd6cc538a63",
+      "comment": "",
+      "command": "click",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//form[@id='covid-form']/input", "xpath:idRelative"],
+        ["xpath=//main/form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "39049693-3bf9-41d0-b727-115d51ee357a",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//form[@id='covid-form']/input", "xpath:idRelative"],
+        ["xpath=//main/form/input", "xpath:position"]
+      ],
+      "value": "John Doe"
+    }, {
+      "id": "2ca8332c-9740-4604-a532-1de839d7fd56",
+      "comment": "",
+      "command": "click",
+      "target": "id=ucid",
+      "targets": [
+        ["id=ucid", "id"],
+        ["css=#ucid", "css:finder"],
+        ["xpath=//input[@id='ucid']", "xpath:attributes"],
+        ["xpath=//form[@id='covid-form']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7733970c-7a75-4eab-ae7e-019bf43cf9ae",
+      "comment": "",
+      "command": "click",
+      "target": "css=.pb-3",
+      "targets": [
+        ["css=.pb-3", "css:finder"],
+        ["xpath=//main", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8d0f68ed-cdd7-4dad-82fd-5fd05f303a5c",
+      "comment": "",
+      "command": "type",
+      "target": "id=ucid",
+      "targets": [
+        ["id=ucid", "id"],
+        ["css=#ucid", "css:finder"],
+        ["xpath=//input[@id='ucid']", "xpath:attributes"],
+        ["xpath=//form[@id='covid-form']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "3003031923"
+    }, {
+      "id": "5eb96516-6485-4b6d-b648-c7b8d5e587d1",
+      "comment": "",
+      "command": "click",
+      "target": "id=age",
+      "targets": [
+        ["id=age", "id"],
+        ["css=#age", "css:finder"],
+        ["xpath=//input[@id='age']", "xpath:attributes"],
+        ["xpath=//form[@id='covid-form']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3d1ca929-7d47-450e-bdd0-1d6b7b7937d3",
+      "comment": "",
+      "command": "type",
+      "target": "id=age",
+      "targets": [
+        ["id=age", "id"],
+        ["css=#age", "css:finder"],
+        ["xpath=//input[@id='age']", "xpath:attributes"],
+        ["xpath=//form[@id='covid-form']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "21"
+    }, {
+      "id": "5fd6af27-7f9b-4d01-9a02-99491b23f492",
+      "comment": "",
+      "command": "click",
+      "target": "id=symptoms",
+      "targets": [
+        ["id=symptoms", "id"],
+        ["name=symptoms", "name"],
+        ["css=#symptoms", "css:finder"],
+        ["xpath=//select[@id='symptoms']", "xpath:attributes"],
+        ["xpath=//form[@id='covid-form']/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c28063f3-22cb-4796-9acf-329c80a4d4e3",
+      "comment": "",
+      "command": "select",
+      "target": "id=symptoms",
+      "targets": [],
+      "value": "label=Shortness of breath"
+    }, {
+      "id": "968cfe56-e033-49de-934c-d0e39fa3c978",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(12)",
+      "targets": [
+        ["css=button:nth-child(12)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='covid-form']/button", "xpath:idRelative"],
+        ["xpath=//main/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Submit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0468f715-03d1-459e-85f7-5360fe7e883a",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "You are likely to be infected, please stay home.\nPlease refer to email for additional information",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "4cc9aced-0ff4-496b-bdc0-b1629e2e82bf",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://localhost:5001/"],
+  "plugins": []
+}
